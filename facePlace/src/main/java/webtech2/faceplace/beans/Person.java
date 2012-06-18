@@ -87,8 +87,11 @@ public class Person implements Serializable {
    * 
    * @param friends New Set of friends.
    */
-  public void setFriends(Set<Person> friends) {
-    this.friends = friends;
+  public void setFriends(org.hibernate.collection.internal.PersistentBag friends) {
+    this.friends.clear();
+    for(Object curObject : friends) {
+      this.friends.add((Person)curObject);
+    }
   }
 
   /**

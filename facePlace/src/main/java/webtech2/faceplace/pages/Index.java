@@ -47,9 +47,7 @@ public class Index {
    * Checks user login.
    */
   void onValidateFromLoginForm() {
-    log.info("method entry");
     if (!authenticator.isValid(name, password)) {
-      log.info("isValid returned false");
       loginForm.recordError(passwordField, "Invalid user name or password.");
     }
   }
@@ -58,7 +56,6 @@ public class Index {
    * Creates a new user.
    */
   void onValidateFromRegisterForm() {
-    log.info("method entry");
     if(!authenticator.signUp(name, password, repeatPassword, birthdate, gender)) {
       registerForm.recordError(registerPasswordField, "Passwords are not equal.");
     }
@@ -69,7 +66,6 @@ public class Index {
    * Validation passed, so we'll go to the "UserHome" page.
    */
   Object onSuccess() {
-    log.info("method entry");
     return "Index";
   }
 

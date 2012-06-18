@@ -2,6 +2,7 @@ package webtech2.faceplace.services;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.sql.SQLException;
 import java.util.Date;
 import java.util.logging.Logger;
 import javax.persistence.EntityManager;
@@ -75,14 +76,19 @@ public class UserManager {
     String saltedPassword = hashText + password;
     String hashedPassword = generateHash(saltedPassword);
     // TODO: Persons with same name are kinda ignored, return id instead mb
-    Query q = em.createQuery("select password from Person s where s.name = username");
+    Query q;
+    try {
+      q = em.createQuery("select password from Person s where s.name = " + username);
+    }
+    catch(Exception e) {
+      // should be thrown if a user with 'username' doesn't exist
+      return false;
+    }    
     
     String storedPasswordHash = (String) q.getSingleResult();
-    if (hashedPassword.equals(storedPasswordHash)) {
+    if (storedPasswordHash != null && hashedPassword.equals(storedPasswordHash)) {
       isAuthenticated = true;
-    } else {
-      isAuthenticated = false;
-    }
+    } 
     return isAuthenticated;
   }
 
