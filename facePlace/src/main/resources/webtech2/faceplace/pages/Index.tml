@@ -1,0 +1,68 @@
+<html t:type="layout" title="Welcome"
+      t:sidebarTitle="Framework Version"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+      xmlns:p="tapestry:parameter">
+        <!-- Most of the page content, including <head>, <body>, etc. tags, comes from Layout.tml -->
+
+    <br/>${message:greeting}
+    <br/>${message:message}
+    <br/><br/>
+
+   <form t:type="form" t:id="loginForm">
+
+      <t:errors/>
+
+      <t:label for="name"/>:
+      <input t:type="TextField" t:id="name" t:validate="required,minlength=3" size="30"/>
+      <br/>
+      <t:label for="password"/>:
+      <input t:type="PasswordField" t:id="password" t:validate="required,minlength=3" size="30"/>
+      <br/>
+      <input type="submit" value="Login"/>
+   </form>
+
+   <br/><br/>
+
+   <form t:type="form" t:id="registerForm">
+    <t:errors/>
+    <t:label for="name"/>:
+    <input t:type="TextField" t:id="registerName" value="name" t:validate="required,minlength=3" size="30"/>
+    <br/>
+    <t:label for="password"/>:
+    <input t:type="PasswordField" t:id="registerPassword" value="password" t:validate="required,minlength=3" size="30"/>
+    <br/>
+    <t:label for="repeatPassword"/>:
+    <input t:type="PasswordField" t:id="repeatPassword" value="repeatPassword" t:validate="required,minlength=3" size="30"/>
+    <br/>
+    <t:label for="birthdate"/>:
+    <input t:type="DateField" value="birthdate" t:id="birthdate" t:validate="required"/>
+    <br/>
+    <t:label for="gender"/>:
+    <t:radiogroup value="gender" t:id="gender">
+      <t:label for="male" />
+      <t:radio t:id="male" value="male"/>
+      <t:label for="female" />
+      <t:radio t:id="female" value="female"/>
+    </t:radiogroup>
+    <br/>
+    <t:submit value="Register" />
+        
+  </form>
+
+
+
+
+    <p:sidebar>
+        <p>
+            You are running Tapestry version <strong>${tapestryVersion}</strong>.
+        </p>
+
+
+        <p>
+            [
+            <t:pagelink page="Index">refresh page</t:pagelink>
+            ]
+        </p>
+    </p:sidebar>
+
+</html>
