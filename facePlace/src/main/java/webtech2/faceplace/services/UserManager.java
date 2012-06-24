@@ -2,14 +2,14 @@ package webtech2.faceplace.services;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.sql.SQLException;
 import java.util.Date;
 import java.util.logging.Logger;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
-import webtech2.faceplace.beans.Person;
-import webtech2.faceplace.persistence.PersistenceProducer;
-
+import org.apache.tapestry5.hibernate.HibernateSessionManager;
+import webtech2.faceplace.entities.Person;
+import webtech2.faceplace.persistence.Persistence;
 
 /**
  * UserManager
@@ -29,15 +29,16 @@ public class UserManager {
   /**
    * This' class Logger.
    */
-  private final Logger log = Logger.getLogger(UserManager.class.getName());
-  
+  private static final Logger log = Logger.getLogger(UserManager.class.getName());
+
   /**
    * Creates a new UserManager.
    */
   public UserManager(EntityManager em) {
     this.em = em;
   }
-  
+  private Person pers;
+
   /**
    * Creates a new user.
    *
@@ -48,18 +49,30 @@ public class UserManager {
    * @param gender The gender.
    * @return True if everything is ok, false if pw is incorrect.
    */
-  public boolean signUp(String name, 
-          String password, 
+  public boolean signUp(String name,
+          String password,
           String repeatPassword,
           Date birthdate,
           String gender) {
-    if(!password.equals(repeatPassword)) {
+    if (!password.equals(repeatPassword)) {
       return false;
     }
-    
+
+    log.info("person data: " + name + " " + password + " " + repeatPassword + " " + birthdate.toString() + " " + gender);
+
     String saltedPassword = hashText + password;
     String hashedPassword = generateHash(saltedPassword);
-    em.persist(new Person(name, hashedPassword, birthdate, gender));
+    log.info("1. schritt");
+    Person xperson = new Person(name, hashedPassword, birthdate, gender);
+    pers = xperson;
+    log.info("person name: " + xperson.getName());
+    em.persist(xperson);
+    if (em.contains(xperson)) {
+      log.info("contains xperson");
+    } else {
+      log.info("doesnt contain xperson");
+    }
+    log.info("nach persist");
     return true;
   }
 
@@ -72,23 +85,19 @@ public class UserManager {
    */
   public boolean isValid(String username, String password) {
     boolean isAuthenticated = false;
-
+    if (em.contains(pers)) {
+      log.info("contains pers");
+    } else {
+      log.info("doesnt contain pers");
+    }
     String saltedPassword = hashText + password;
     String hashedPassword = generateHash(saltedPassword);
-    // TODO: Persons with same name are kinda ignored, return id instead mb
-    Query q;
-    try {
-      q = em.createQuery("select password from Person s where s.name = " + username);
-    }
-    catch(Exception e) {
-      // should be thrown if a user with 'username' doesn't exist
-      return false;
-    }    
-    
+    Query q = em.createQuery("select password from Person s where s.name = " + username);
+
     String storedPasswordHash = (String) q.getSingleResult();
     if (storedPasswordHash != null && hashedPassword.equals(storedPasswordHash)) {
       isAuthenticated = true;
-    } 
+    }
     return isAuthenticated;
   }
 

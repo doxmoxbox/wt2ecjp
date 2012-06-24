@@ -86,6 +86,12 @@ of testing facilities designed for use with TestNG (http://testng.org/), so it's
                         <type>jar</type>
                 </dependency>
                 <dependency>
+                        <groupId>org.apache.tapestry</groupId>
+                        <artifactId>tapestry-hibernate-core</artifactId>
+                        <version>5.2.4</version>
+                        <type>jar</type>
+                </dependency>
+                <dependency>
                         <groupId>javax</groupId>
                         <artifactId>javaee-web-api</artifactId>
                         <version>6.0</version>
@@ -157,6 +163,5 @@ of testing facilities designed for use with TestNG (http://testng.org/), so it's
         <servlet-api-release-version>2.5</servlet-api-release-version>
         <testng-release-version>5.14.9</testng-release-version>
         <easymock-release-version>3.0</easymock-release-version>
-            <netbeans.hint.deploy.server>gfv3ee6</netbeans.hint.deploy.server>
     </properties>
 </project>

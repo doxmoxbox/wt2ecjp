@@ -3,7 +3,6 @@ package webtech2.faceplace.pages;
 import java.util.Date;
 import java.util.logging.Logger;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import org.apache.tapestry5.SymbolConstants;
 import org.apache.tapestry5.annotations.Component;
 import org.apache.tapestry5.annotations.Persist;
@@ -12,6 +11,7 @@ import org.apache.tapestry5.corelib.components.Form;
 import org.apache.tapestry5.corelib.components.PasswordField;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.ioc.annotations.Symbol;
+import webtech2.faceplace.entities.Person;
 import webtech2.faceplace.persistence.Persistence;
 import webtech2.faceplace.services.UserManager;
 
@@ -26,8 +26,8 @@ public class Index {
   @Persist
   private String gender;
   @javax.inject.Inject
-	@Persistence
-	EntityManager em;
+  @Persistence
+  EntityManager em;
   private UserManager authenticator = new UserManager(em);
   @Component(id = "password")
   private PasswordField passwordField;
@@ -41,7 +41,8 @@ public class Index {
   @Inject
   @Symbol(SymbolConstants.TAPESTRY_VERSION)
   private String tapestryVersion;
-  private static Logger log = Logger.getLogger(Index.class.getName());
+  private static final Logger log = Logger.getLogger(Index.class.getName());
+  Person p;
 
   /**
    * Checks user login.
@@ -51,16 +52,15 @@ public class Index {
       loginForm.recordError(passwordField, "Invalid user name or password.");
     }
   }
-  
+
   /**
    * Creates a new user.
    */
   void onValidateFromRegisterForm() {
-    if(!authenticator.signUp(name, password, repeatPassword, birthdate, gender)) {
+    if (!authenticator.signUp(name, password, repeatPassword, birthdate, gender)) {
       registerForm.recordError(registerPasswordField, "Passwords are not equal.");
     }
   }
-      
 
   /**
    * Validation passed, so we'll go to the "UserHome" page.
@@ -76,19 +76,19 @@ public class Index {
   public void setPassword(String password) {
     this.password = password;
   }
-  
+
   public String getRepeatPassword() {
     return repeatPassword;
   }
-  
+
   public void setRepeatPassword(String repeatPassword) {
     this.repeatPassword = repeatPassword;
   }
-  
+
   public Date getBirthdate() {
     return birthdate;
   }
-  
+
   public void setBirthdate(Date date) {
     birthdate = date;
   }
@@ -100,20 +100,20 @@ public class Index {
   public void setName(String userName) {
     this.name = userName;
   }
-  
+
   public String getMale() {
     return gender;
   }
-  
+
   public String getFemale() {
     return gender;
   }
-  
+
   public String getGender() {
     return gender;
   }
-  
+
   public void setGender(String gender) {
-    this.gender = gender;    
+    this.gender = gender;
   }
 }
