@@ -13,6 +13,7 @@ import javax.persistence.PersistenceUnit;
 import javax.persistence.Query;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.Date;
 
 /**
  * Created with IntelliJ IDEA.
@@ -29,13 +30,17 @@ public class ApplicationBackendImpl implements ApplicationBackend {
 	@Persistence
 	EntityManager em;
 
+	
+	
+	/* 
+	 * -----------------------------------
+	 * All about people: 				--
+	 * -----------------------------------
+	 */
+	
 	@Override
-	public String sayHello() {
-		return "Hello!";
-	}
-
-	@Override
-	public DBPerson createNewPerson() {
+	public DBPerson createNewPerson() 
+	{
 		DBPerson newperson = new DBPerson();
 
 		em.persist(newperson);
@@ -44,23 +49,15 @@ public class ApplicationBackendImpl implements ApplicationBackend {
 	}
 
 	@Override
-	public Set<DBPerson> getAllPersons() {
-
+	public Set<DBPerson> getAllPersons() 
+	{
 		Query q = em.createQuery("SELECT p FROM DBPerson p", DBPerson.class);
-
 		return new HashSet<DBPerson>(q.getResultList());
 	}
-	
-	/*@Override
-	public Set<DBPost> getAllPosts() {
-
-		Query q = em.createQuery("SELECT p FROM DBPost p", DBPost.class);
-
-		return new HashSet<DBPost>(q.getResultList());
-	}*/
 
 	@Override
-	public DBPerson getPerson(long id) {
+	public DBPerson getPerson(long id) 
+	{
 		return em.find(DBPerson.class, id);
 	}
 
@@ -69,6 +66,84 @@ public class ApplicationBackendImpl implements ApplicationBackend {
 		DBPerson p = getPerson(id);
 		if(p != null) {
 			em.remove(p);
+		}
+	}
+	
+	/* 
+	 * ---------------------------
+	 * All about posts:			--
+	 * ---------------------------
+	 */
+	 
+	@Override
+	public Set<DBPost> getAllPosts() 
+	{
+		Query q = em.createQuery("SELECT p FROM DBPost p", DBPost.class);
+		return new HashSet<DBPost>(q.getResultList());
+	}
+	
+	/**
+	 * Creates new post, stores in DB and returns it.
+	 * @return New created post.
+	 */
+	@Override
+	public DBPost createNewPost()
+	{
+		DBPost newPost = new DBPost();
+		em.persist(newPost);
+		return newPost;
+	}
+	
+	/**
+	 * Removes post by given id.
+	 */
+	public void removePost(long id)
+	{
+		DBPost p = getPost(id);
+		if(p != null)
+		{
+			em.remove(p);
+		}
+	}
+	
+	/**
+	 * Returns post by given id.
+	 */
+	@Override
+	public DBPost getPost(long id) 
+	{
+		return em.find(DBPost.class, id);
+	}
+	
+	
+	/* 
+	 * ---------------------------
+	 * Something other:			--
+	 * ---------------------------
+	 */
+	
+	@Override
+	public String sayHello() 
+	{
+		return "Hello!";
+	}
+	
+	@Override
+	public void createTestEntries()
+	{
+		for(int i=0; i<15;i++)
+		{
+			DBPerson newPerson = createNewPerson();
+			newPerson.setName("Mr.X");
+			newPerson.setBirthday(new Date((int)Math.random()*10, (int)Math.random()*10, (int)Math.random()*10));
+			
+			DBPost newPost = new DBPost();
+			Date bla = new Date((int)Math.random()*10, (int)Math.random()*10, (int)Math.random()*10); 
+			newPost.setCreationDate(bla);
+			newPost.setMsg("nur Testtext heute mal! :D");	
+			newPost.setCreator(newPerson);
+			
+			em.persist(newPost);
 		}
 	}
 

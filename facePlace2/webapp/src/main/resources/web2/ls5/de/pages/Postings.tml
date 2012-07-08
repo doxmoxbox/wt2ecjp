@@ -1,9 +1,21 @@
-<html t:type="layout" title="Person editor"
+<html t:type="layout" title="All Posts"
 	  xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
 	  xmlns:p="tapestry:parameter">
 
 	<p>${hello}</p>
-<!-- <t:grid source="allPersons" row="person" add="action">
-</t:grid> -->
+	<p><t:actionlink t:id="createTestEntries">Erstelle Testeintraege</t:actionlink></p>
+	
+	<table>
+		<tr>
+			<td>
+				<t:grid source="allPosts" row="post" add="person">
+
+            	</t:grid>
+			</td>
+			<td>
+				<t:grid source="allPersons" row="person"/>
+			</td>
+		</tr>
+	</table>
 
 </html>
