@@ -1,7 +1,0 @@
-<html t:type="layout" title="Loop demo"
-	  xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
-		>
-
-    <t:loop source="collection" value="value"><p>${value} ${quadrat}</p></t:loop>
-
-</html>

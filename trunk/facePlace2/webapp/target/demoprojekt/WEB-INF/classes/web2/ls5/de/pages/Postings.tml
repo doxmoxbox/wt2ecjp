@@ -1,9 +1,0 @@
-<html t:type="layout" title="Person editor"
-	  xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
-	  xmlns:p="tapestry:parameter">
-
-	<p>${hello}</p>
-<!-- <t:grid source="allPersons" row="person" add="action">
-</t:grid> -->
-
-</html>
