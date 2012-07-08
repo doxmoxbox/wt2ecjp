@@ -10,7 +10,7 @@ public class DBPost
 	private long id;
 	private String msg;
 	private Date creationDate;
-	private String creator;
+	private DBPerson creator;
 	
 	@Id
 	@GeneratedValue
@@ -45,12 +45,13 @@ public class DBPost
 		this.creationDate = creationDate;
 	}
 	
-	public void setCreator(String creator)
+	public void setCreator(DBPerson creator)
 	{
 		this.creator = creator;
 	}
 	
-	public String getCreator()
+	@ManyToOne( cascade = {CascadeType.PERSIST, CascadeType.MERGE} )
+	public DBPerson getCreator()
 	{
 		return creator;
 	}

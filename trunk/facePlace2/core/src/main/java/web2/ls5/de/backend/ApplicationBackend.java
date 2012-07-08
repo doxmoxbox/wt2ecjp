@@ -12,20 +12,22 @@ import java.util.Set;
  * Time: 08:11
  * To change this template use File | Settings | File Templates.
  */
-public interface ApplicationBackend {
-
-	public String sayHello();
-
+public interface ApplicationBackend 
+{
+	/* All about people: */
 	public DBPerson createNewPerson();
-
 	public Set<DBPerson> getAllPersons();
-
 	public DBPerson getPerson(long id);
-
 	public void removePerson(long id);
 	
-	//public Set<DBPost> getAllPosts();
-
-
-
+	/* All about posts: */
+	public Set<DBPost> getAllPosts();
+	public DBPost createNewPost();
+	public void removePost(long id);
+	public DBPost getPost(long id);
+	
+	
+	/* Something other */ 
+	public void createTestEntries();
+	public String sayHello();
 }

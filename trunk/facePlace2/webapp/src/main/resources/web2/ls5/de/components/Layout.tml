@@ -22,9 +22,7 @@ Description: A Web 2.0 design with fluid width suitable for blogs and small webs
         <div class="header">
             <div class="logo">
                 <h1>
-                    <t:pagelink page="index">web2.ls5.de:demoprojekt</t:pagelink>
-                    &nbsp;
-                    version ${appVersion}
+                    <t:pagelink page="index">facePlace++</t:pagelink>
                 </h1>
             </div>
             <div class="menu">
@@ -36,6 +34,7 @@ Description: A Web 2.0 design with fluid width suitable for blogs and small webs
             </div>
         </div>
         <!-- end header -->
+        
         <!-- start page -->
         <div class="page">
             <!-- start sidebar -->
@@ -56,7 +55,11 @@ Description: A Web 2.0 design with fluid width suitable for blogs and small webs
                 </ul>
             </div>
             <!-- end sidebar -->
+            
             <!-- start content -->
+            <div class="content">
+            	<t:logincomponent/>
+            </div>
             <div class="content">
                 <div class="post">
                     <div class="title">
