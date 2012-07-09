@@ -82,6 +82,13 @@ public class ApplicationBackendImpl implements ApplicationBackend {
 		return new HashSet<DBPost>(q.getResultList());
 	}
 	
+	@Override
+	public Set<DBPost> getAllPostsFromPerson(long id) 
+	{
+		Query q = em.createQuery("SELECT p FROM DBPost p WHERE p.creator = "+ id, DBPost.class);
+		return new HashSet<DBPost>(q.getResultList());
+	}
+	
 	/**
 	 * Creates new post, stores in DB and returns it.
 	 * @return New created post.
@@ -140,11 +147,15 @@ public class ApplicationBackendImpl implements ApplicationBackend {
 			DBPost newPost = new DBPost();
 			Date bla = new Date((int)Math.random()*10, (int)Math.random()*10, (int)Math.random()*10); 
 			newPost.setCreationDate(bla);
-			newPost.setMsg("nur Testtext heute mal! :D");	
-			newPost.setCreator(newPerson);
+			newPost.setMsg(generateRandomString());	
+			newPost.setCreator(newPerson.getId());
 			
 			em.persist(newPost);
 		}
 	}
-
+	
+	private String generateRandomString()
+	{
+		return java.util.UUID.randomUUID().toString();
+	}
 }

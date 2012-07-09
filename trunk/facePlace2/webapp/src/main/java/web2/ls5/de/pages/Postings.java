@@ -37,6 +37,11 @@ public class Postings
 		return backend.getAllPosts();
 	}
 	
+	public Set<DBPost> getAllPostsFromPerson()
+	{
+		return backend.getAllPostsFromPerson(3);
+	}
+	
 	public Set<DBPerson> getAllPersons()
 	{
 		return backend.getAllPersons();
