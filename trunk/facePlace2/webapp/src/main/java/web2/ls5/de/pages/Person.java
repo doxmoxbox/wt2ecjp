@@ -55,7 +55,7 @@ public class Person
 	void onSuccessFromEdit() {
 		DBPerson p = backend.getPerson(editperson.getId());
 		p.setName(editperson.getName());
-		p.setBirthday(editperson.getBirthday());
+		p.setBirthdate(editperson.getBirthdate());
 
 		// set to null to make editor disappear on page
 		editperson = null;
@@ -65,7 +65,7 @@ public class Person
 		DBPerson p = backend.createNewPerson();
 
 		p.setName(addperson.getName());
-		p.setBirthday(addperson.getBirthday());
+		p.setBirthdate(addperson.getBirthdate());
 
 		// set to null to make editor disappear on page
 		addperson = null;

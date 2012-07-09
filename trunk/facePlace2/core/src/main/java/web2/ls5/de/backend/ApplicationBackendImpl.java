@@ -29,9 +29,19 @@ public class ApplicationBackendImpl implements ApplicationBackend {
 	@Inject
 	@Persistence
 	EntityManager em;
-
 	
+	private UserManager um;
 	
+	@Override
+	public UserManager getUserManager()
+	{
+		if(um != null) return um;
+		else 
+		{
+			um = new UserManager(em);
+			return um;
+		}
+	}
 	/* 
 	 * -----------------------------------
 	 * All about people: 				--
@@ -142,7 +152,9 @@ public class ApplicationBackendImpl implements ApplicationBackend {
 		{
 			DBPerson newPerson = createNewPerson();
 			newPerson.setName("Mr.X");
-			newPerson.setBirthday(new Date((int)Math.random()*10, (int)Math.random()*10, (int)Math.random()*10));
+			newPerson.setBirthdate(new Date((int)Math.random()*10, (int)Math.random()*10, (int)Math.random()*10));
+			newPerson.setGender("w");
+			newPerson.setPassword(getUserManager().getHashedPassword("123"));
 			
 			DBPost newPost = new DBPost();
 			Date bla = new Date((int)Math.random()*10, (int)Math.random()*10, (int)Math.random()*10); 
