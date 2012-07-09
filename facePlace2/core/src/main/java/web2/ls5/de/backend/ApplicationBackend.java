@@ -22,6 +22,7 @@ public interface ApplicationBackend
 	
 	/* All about posts: */
 	public Set<DBPost> getAllPosts();
+	public Set<DBPost> getAllPostsFromPerson(long id);
 	public DBPost createNewPost();
 	public void removePost(long id);
 	public DBPost getPost(long id);

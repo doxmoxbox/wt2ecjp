@@ -8,12 +8,16 @@
 	<table>
 		<tr>
 			<td>
-				<t:grid source="allPosts" row="post" add="person">
+				<t:grid source="allPosts" row="post">
 
             	</t:grid>
 			</td>
 			<td>
 				<t:grid source="allPersons" row="person"/>
+			</td>
+			<td>
+				<p>Alle Postings von Person mit ID 3:</p><br/>
+				<t:grid source="allPostsFromPerson" row="post"/>
 			</td>
 		</tr>
 	</table>
