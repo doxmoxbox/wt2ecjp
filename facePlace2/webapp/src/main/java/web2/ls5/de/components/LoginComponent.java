@@ -9,10 +9,13 @@ import org.apache.tapestry5.corelib.components.PasswordField;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import org.apache.tapestry5.ioc.annotations.Symbol;
 import javax.persistence.EntityManager;
-//import web2.ls5.de.services.UserManager;
+import web2.ls5.de.backend.ApplicationBackend;
+import web2.ls5.de.backend.UserManager;
 
 public class LoginComponent
 {
+	@Inject
+	ApplicationBackend backend;
 	
 	@Component
 	private Form loginForm;
@@ -21,7 +24,7 @@ public class LoginComponent
 	//@Persistence
 	//EntityManager em;
 	
-	//private UserManager authenticator = new UserManager(em);
+	private UserManager authenticator = backend.getUserManager();
 
 	@Component(id = "password")
 	private PasswordField passwordField;
@@ -35,13 +38,13 @@ public class LoginComponent
 	/**
 	 * Checks user login.
 	 */
-	/*void onValidateFromLoginForm()
+	void onValidateFromLoginForm()
 	{
 		if (!authenticator.isValid(name, password)) 
 		{
 			loginForm.recordError(passwordField, "Invalid user name or password.");
 		}
-	}*/
+	}
 	 
 	/**
 	 * Creates a new user.
@@ -59,7 +62,7 @@ public class LoginComponent
 	 */
 	Object onSuccess() 
 	{
-		return "Index";
+		return "About";
 	}
 	
 	

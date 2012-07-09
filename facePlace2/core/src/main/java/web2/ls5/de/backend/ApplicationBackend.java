@@ -29,6 +29,7 @@ public interface ApplicationBackend
 	
 	
 	/* Something other */ 
+	public UserManager getUserManager();
 	public void createTestEntries();
 	public String sayHello();
 }
