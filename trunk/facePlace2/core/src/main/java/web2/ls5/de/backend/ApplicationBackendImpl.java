@@ -31,7 +31,9 @@ public class ApplicationBackendImpl implements ApplicationBackend {
 	EntityManager em;
 	
 	private UserManager um;
-	
+	/**
+	 * Absolut ueberfluessig!
+	 */
 	@Override
 	public UserManager getUserManager()
 	{
