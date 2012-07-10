@@ -1,0 +1,8 @@
+<html t:type="layout" title="About demoprojekt"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+      xmlns:p="tapestry:parameter">
+
+    <p>About demoprojekt application ...</p>
+
+
+</html>

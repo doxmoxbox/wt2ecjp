@@ -1,0 +1,13 @@
+<html t:type="layout" title="Beanedit"
+	  xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+		>
+
+
+
+	<t:beandisplay object="person"/>
+
+
+	<t:beaneditform object="person"/>
+
+
+</html>
