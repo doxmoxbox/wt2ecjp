@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="ear" name="core:ear">
-    <output-path>$PROJECT_DIR$/core/target</output-path>
-    <root id="archive" name="web2-demo-core-1.0-SNAPSHOT.ear">
-      <element id="artifact" artifact-name="core:ear exploded" />
-    </root>
-  </artifact>
-</component>
