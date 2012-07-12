@@ -62,7 +62,7 @@ public class LoginComponent
 	 */
 	Object onSuccess() 
 	{
-		return "About";
+		return "Home";
 	}
 	
 	

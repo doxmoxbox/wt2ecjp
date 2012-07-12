@@ -1,9 +1,15 @@
-<html t:type="layout" title="facePlace++"
-      t:sidebarTitle="Framework Version"
+<html t:type="layout" title="Index"
       xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
       xmlns:p="tapestry:parameter">
         <!-- Most of the page content, including <head>, <body>, etc. tags, comes from Layout.tml -->
-
+	
     <p>${message:greeting}</p>
-    <t:logincomponent/>
+    <div class="login">
+    	<div style="float: left; border: 1px #999999 dashed;">
+    		<t:logincomponent/>
+    	</div>
+    	<div style="float: right; border: 1px #999999 dashed;">
+    		<t:registercomponent/>
+    	</div>
+    </div>
 </html>
