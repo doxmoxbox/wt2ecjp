@@ -1,0 +1,12 @@
+<html 	t:type="layout" 
+		title="Home"
+		xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+		xmlns:p="tapestry:parameter">
+      
+	<p>Home-Side des Users kommt hier hin.</p>
+	<div style="border: 1px #999999 dashed">
+		bla
+	</div>
+      
+      
+</html>

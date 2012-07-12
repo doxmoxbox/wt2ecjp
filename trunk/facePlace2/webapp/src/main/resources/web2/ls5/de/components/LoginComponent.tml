@@ -1,12 +1,12 @@
-
-<form t:type="form" t:id="loginForm" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
-	<t:label for="name"/>:
-	<input t:type="TextField" t:id="name" t:validate="required,minlength=3" size="30"/>
-	<br/>
-	<t:label for="password"/>:
-	<input t:type="PasswordField" t:id="password" t:validate="required,minlength=3" size="30"/>
-	<br/>
-	<input type="submit" value="Login"/>
-	<t:pagelink page="Register">Neu Registrieren</t:pagelink>
-</form>
-
+	<form t:type="form" t:id="loginForm" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+	
+		<t:label for="name"/>&nbsp;
+		<input t:type="TextField" label="Name" t:id="name" t:validate="required,minlength=3" size="25"/><br/>
+			
+		<t:label for="password"/>&nbsp;
+		<input t:type="PasswordField" label="Passwort" t:id="password" t:validate="required,minlength=3" size="25"/><br/>
+		
+		<input type="submit" value="Login"/>
+		&nbsp;
+		<t:pagelink page="Register">Neu Registrieren</t:pagelink>	
+	</form>

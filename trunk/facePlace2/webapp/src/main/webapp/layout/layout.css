@@ -146,9 +146,9 @@ div.page {
 
 /* Content */
 
-div.content {
-    margin-right: 340px;
-}
+/*div.content {
+    margin-right: 640px;
+}*/
 
 .post {
     margin-bottom: 10px;
@@ -179,6 +179,14 @@ div.content {
 
 .post .entry {
     padding: 20px 0px 20px 0px;
+}
+
+.post .entry .login {
+	line-height:250%;
+    width:auto;
+    border: 1px #999999 dashed;
+    margin:1em 20%;
+    text-align: center;
 }
 
 .post .links {

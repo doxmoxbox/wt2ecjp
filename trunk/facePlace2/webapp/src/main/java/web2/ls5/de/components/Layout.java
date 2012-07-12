@@ -37,6 +37,9 @@ public class Layout
     @Inject
     @Symbol(SymbolConstants.APPLICATION_VERSION)
     private String appVersion;
+    
+    @Property
+    private boolean showSidebar;
 
 
     public String getClassForPageName()
@@ -48,6 +51,11 @@ public class Layout
 
     public String[] getPageNames()
     {
-        return new String[]{"Index","Profile", "About", "Contact", "Test"};
+        return new String[]{"Index", "Home", "Profile", "About", "Contact", "Test"};
+    }
+    
+    public void showSidebar(boolean b)
+    {
+    	showSidebar = b;
     }
 }

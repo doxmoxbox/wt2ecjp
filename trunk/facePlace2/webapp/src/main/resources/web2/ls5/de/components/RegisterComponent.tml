@@ -1,0 +1,35 @@
+<form t:type="form" t:id="registerForm" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+    	<t:errors/>
+    	<t:label for="registerName"/>:
+    	<input t:type="TextField" t:id="registerName" value="name" t:validate="required,minlength=3" size="30"/>
+    	
+    	<br/>
+    	
+    	<t:label for="registerPassword"/>:
+    	<input t:type="PasswordField" t:id="registerPassword" value="password" t:validate="required,minlength=3" size="30"/>
+    
+    	<br/>
+    	
+    	<t:label for="repeatPassword"/>:
+    	<input t:type="PasswordField" t:id="repeatPassword" value="repeatPassword" t:validate="required,minlength=3" size="30"/>
+    	
+    	<br/>
+    
+    	<t:label for="birthdate"/>:
+    	<input t:type="DateField" value="birthdate" t:id="birthdate" t:validate="required"/>
+    
+    	<br/>
+    
+    	<t:label for="gender"/>:
+    	<t:radiogroup value="gender" t:id="gender">
+      		<t:label for="male" />
+      		<t:radio t:id="male" value="male"/>
+      		<t:label for="female" />
+      		<t:radio t:id="female" value="female"/>
+    	</t:radiogroup>
+    
+    	<br/>
+    
+    	<t:submit value="Register" />
+        
+  </form>
