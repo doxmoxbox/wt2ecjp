@@ -5,7 +5,5 @@
         <!-- Most of the page content, including <head>, <body>, etc. tags, comes from Layout.tml -->
 
     <p>${message:greeting}</p>
-
-    
-
+    <t:logincomponent/>
 </html>
