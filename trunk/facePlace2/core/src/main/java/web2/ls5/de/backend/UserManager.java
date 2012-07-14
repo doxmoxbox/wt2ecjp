@@ -68,8 +68,7 @@ public class UserManager {
    * @param password The password.
    * @return True if it's correct, false otherwise.
    */
-  public long isValid(String username, String password) {
-    long id = -1;
+  public DBPerson isValid(String username, String password) {
     String saltedPassword = hashText + password;
     String hashedPassword = generateHash(saltedPassword);
     String storedPasswordHash = "";
@@ -82,10 +81,10 @@ public class UserManager {
       }
     }
 
-    if (storedPasswordHash != null && hashedPassword.equals(storedPasswordHash) && pers != null) {
-      id = pers.getId();
+    if (storedPasswordHash == null || !hashedPassword.equals(storedPasswordHash) || pers == null) {
+      pers = null;
     }
-    return id;
+    return pers;
   }
 
   /**
