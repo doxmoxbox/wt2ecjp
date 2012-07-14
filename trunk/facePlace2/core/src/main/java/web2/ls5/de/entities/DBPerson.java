@@ -26,8 +26,6 @@ public class DBPerson {
 	private String name;
 	private String password;
 	private Date birthdate;
-	private String gender;
-	//private Set<DBPerson> friends;
 	
 	
 	public DBPerson()
@@ -39,18 +37,14 @@ public class DBPerson {
 	public DBPerson(
 			String name,
 			String hashedPassword,
-			Date birthdate,
-			String gender) 
+			Date birthdate) 
 	{
 		Objects.requireNonNull(hashedPassword, "hashedPassword is null");
 	    Objects.requireNonNull(name, "name is null");
 	    Objects.requireNonNull(birthdate, "birthdate is null");
-	    Objects.requireNonNull(gender, "gender is null");
 	    this.name = name;
 	    password = hashedPassword;
 	    this.birthdate = birthdate;
-	    this.gender = gender;
-	    //friends = new HashSet<DBPerson>();
 	  }
 	
 	/**
@@ -97,15 +91,6 @@ public class DBPerson {
 	public void setId(long id) {
 		this.id = id;
 	}
-	
-	public String getGender()
-	{
-		return gender;
-	}
-	
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
 
 	public String getName() {
 		return name;
@@ -121,7 +106,7 @@ public class DBPerson {
 	}
 
 	public void setBirthdate(Date birthday) {
-		this.birthdate = birthdate;
+		this.birthdate = birthday;
 	}
 	
 	public String getPassword() {

@@ -16,17 +16,7 @@
     	<br/>
     
     	<t:label for="birthdate"/>:
-    	<input t:type="DateField" value="birthdate" t:id="birthdate" t:validate="required"/>
-    
-    	<br/>
-    
-    	<t:label for="gender"/>:
-    	<t:radiogroup value="gender" t:id="gender">
-      		<t:label for="male" />
-      		<t:radio t:id="male" value="male"/>
-      		<t:label for="female" />
-      		<t:radio t:id="female" value="female"/>
-    	</t:radiogroup>
+    	<input t:type="DateField" value="birthdate" t:id="birthdate" t:validate="required"/>  
     
     	<br/>
     

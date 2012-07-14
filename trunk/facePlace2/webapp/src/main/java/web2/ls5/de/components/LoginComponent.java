@@ -1,61 +1,39 @@
 package web2.ls5.de.components;
 
-import org.apache.tapestry5.SymbolConstants;
-import org.apache.tapestry5.annotations.Component;
-import org.apache.tapestry5.annotations.Persist;
-import org.apache.tapestry5.annotations.Property;
+import java.util.logging.Logger;
+import org.apache.tapestry5.annotations.*;
 import org.apache.tapestry5.corelib.components.Form;
 import org.apache.tapestry5.corelib.components.PasswordField;
 import org.apache.tapestry5.ioc.annotations.Inject;
-import org.apache.tapestry5.ioc.annotations.Symbol;
-import javax.persistence.EntityManager;
 import web2.ls5.de.backend.ApplicationBackend;
 import web2.ls5.de.backend.UserManager;
 
-public class LoginComponent
-{
-	@Inject
-	ApplicationBackend backend;
-	
-	@Component
-	private Form loginForm;
-	
-	//@javax.inject.Inject
-	//@Persistence
-	//EntityManager em;
-	
-	private UserManager authenticator = backend.getUserManager();
+public class LoginComponent {
 
-	@Component(id = "password")
-	private PasswordField passwordField;
-
-	@Property
-	private String password;
-	
-	@Persist
-	private String name;
-	
-	/**
-	 * Checks user login.
-	 */
-	void onValidateFromLoginForm()
-	{
-		if (!authenticator.isValid(name, password)) 
-		{
-			loginForm.recordError(passwordField, "Invalid user name or password.");
-		}
-	}
-	 
-	/**
-	 * Creates a new user.
-	 */
-	/*void onValidateFromRegisterForm() 
-	{
-		if (!authenticator.signUp(name, password, repeatPassword, birthdate, gender))
-		{
-			registerForm.recordError(registerPasswordField, "Passwords are not equal.");
-		}
-	}*/
+  @Inject
+  ApplicationBackend backend;
+  @Component
+  private Form loginForm;
+  private UserManager authenticator = backend.getUserManager();
+  @Component(id = "password")
+  private PasswordField passwordField;
+  @Property
+  private String password;
+  @Persist
+  private String name;
+  Logger log = Logger.getLogger(LoginComponent.class.getName());
+  @SessionState
+  private long id;
+  
+  /**
+   * Checks user login.
+   */
+  void onValidateFromLoginForm() {
+    id = authenticator.isValid(name, password);
+    if (id == -1) {
+      loginForm.recordError(passwordField, "Invalid user name or password.");
+    }
+  }
 	 
 	/**
 	 * Validation passed, so we'll go to the "UserHome" page.
@@ -63,8 +41,7 @@ public class LoginComponent
 	Object onSuccess() 
 	{
 		return "Home";
-	}
-	
+	}	
 	
 	public String getHello() 
 	{
@@ -76,8 +53,7 @@ public class LoginComponent
 		 return name; 
 	 }
 
-	 public void setName(String userName) 
-	 {
-		 this.name = userName;
-	 }
+  public void setName(String userName) {
+    this.name = userName;
+  }
 }

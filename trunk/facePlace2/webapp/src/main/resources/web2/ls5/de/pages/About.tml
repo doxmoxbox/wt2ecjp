@@ -4,5 +4,6 @@
 
     <p>About demoprojekt application ...</p>
 
-
+    <p>Current user logged in is:</p>
+    <t:beandisplay object="loggedInPerson"/>
 </html>
