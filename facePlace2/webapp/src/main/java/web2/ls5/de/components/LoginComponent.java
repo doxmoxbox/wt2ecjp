@@ -7,6 +7,7 @@ import org.apache.tapestry5.corelib.components.PasswordField;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import web2.ls5.de.backend.ApplicationBackend;
 import web2.ls5.de.backend.UserManager;
+import web2.ls5.de.entities.DBPerson;
 
 public class LoginComponent {
 
@@ -23,14 +24,14 @@ public class LoginComponent {
   private String name;
   Logger log = Logger.getLogger(LoginComponent.class.getName());
   @SessionState
-  private long id;
+  private DBPerson loggedInPerson;
   
   /**
    * Checks user login.
    */
   void onValidateFromLoginForm() {
-    id = authenticator.isValid(name, password);
-    if (id == -1) {
+    loggedInPerson = authenticator.isValid(name, password);
+    if (loggedInPerson == null) {
       loginForm.recordError(passwordField, "Invalid user name or password.");
     }
   }

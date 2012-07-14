@@ -15,20 +15,12 @@ public class About
 	ApplicationBackend backend;
   
   @SessionState
-  private long id;
-  
-	private DBPerson loggedInPerson;
+  private DBPerson loggedInPerson;
+
   private Logger log = Logger.getLogger(About.class.getName());
   
   public DBPerson getLoggedInPerson() {
-    Set<DBPerson> persons = backend.getAllPersons();
-    for(DBPerson p : persons) {
-      if(p.getId() == id) {
-       loggedInPerson = p;
-       return loggedInPerson;
-      }
-    }
-    return null;
+    return loggedInPerson;
   }
 
   public void setLoggedInPerson(DBPerson pers) {
