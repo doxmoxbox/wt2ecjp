@@ -1,9 +1,8 @@
 package web2.ls5.de.backend;
 
+import java.util.Set;
 import web2.ls5.de.entities.DBPerson;
 import web2.ls5.de.entities.DBPost;
-
-import java.util.Set;
 
 /**
  * Created with IntelliJ IDEA.

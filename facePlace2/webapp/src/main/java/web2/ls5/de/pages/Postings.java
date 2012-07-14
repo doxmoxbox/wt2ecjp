@@ -16,8 +16,8 @@ public class Postings
 	@Inject
 	ApplicationBackend backend;
 	
-	@Inject
-	private AlertManager alertManager;
+/*	@Inject
+	private AlertManager alertManager;*/
 	
 	@Property
 	private DBPost post;
@@ -27,9 +27,9 @@ public class Postings
 	
 	void onActionFromCreateTestEntries()
     {
-        alertManager.info("Erstelle Testeintraege");
+   //     alertManager.info("Erstelle Testeintraege");
         backend.createTestEntries();
-        alertManager.info("Fertig damit!");
+     //   alertManager.info("Fertig damit!");
     }
 	
 	public Set<DBPost> getAllPosts()

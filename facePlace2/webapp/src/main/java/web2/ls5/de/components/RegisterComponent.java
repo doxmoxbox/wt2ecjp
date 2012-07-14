@@ -14,64 +14,44 @@ import web2.ls5.de.backend.UserManager;
 
 public class RegisterComponent 
 {
-	@Persist
-	private String name;
-	@Property
-	private String password;
-	@Property
-	private String repeatPassword;
-	@Property
-	@Persist
-	private Date birthdate;
-	@Property
-	@Persist
-	private String gender;
-	
-	@Component
-	private Form registerForm;
-	
-	@Inject
-	ApplicationBackend backend;
-	
-	private UserManager authenticator = backend.getUserManager();
-	
-	@Component(id = "registerPassword")
-	private PasswordField registerPasswordField;
-	
-	/**
-	 * Creates a new user.
-	 */
-	void onValidateFromRegisterForm()
-	{
-		if (!authenticator.signUp(name, password, repeatPassword, birthdate, gender)) 
-		{
-			registerForm.recordError(registerPasswordField, "Passwords are not equal.");
-	    }
-	}
-	/**
-	 * 
-	 */
-	Object onSuccess() 
-	{
-	    return "Home";
-	}
-	
-	public String getMale() 
-	{
-		return gender;
-	}
+  @Persist
+  private String name;
+  @Property
+  private String password;
+  @Property
+  private String repeatPassword;
+  @Property
+  @Persist
+  private Date birthdate;
+  @Inject
+  ApplicationBackend backend;
+  @Component
+  private Form registerForm;
+  private UserManager authenticator = backend.getUserManager();
+  @Component(id = "registerPassword")
+  private PasswordField registerPasswordField;
 
-	public String getFemale() {
-		return gender;
-	}
-	  
-	public String getName() 
-	{
-		return name;
-	}
+  /**
+   * Creates a new user.
+   */
+  void onValidateFromRegisterForm() {
+    if (!authenticator.signUp(name, password, repeatPassword, birthdate)) {
+      registerForm.recordError(registerPasswordField, "Passwords are not equal.");
+    }
+  }
 
-	public void setName(String userName) 
-	{
-		this.name = userName;
-	}
+  /**
+   *
+   */
+  Object onSuccess() {
+    return "Index";
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String userName) {
+    this.name = userName;
+  }
 }

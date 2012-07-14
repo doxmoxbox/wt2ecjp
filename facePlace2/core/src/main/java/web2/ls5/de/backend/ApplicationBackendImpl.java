@@ -8,12 +8,11 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.PersistenceUnit;
 import javax.persistence.Query;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Date;
+import org.apache.tapestry5.annotations.SessionAttribute;
 
 /**
  * Created with IntelliJ IDEA.
@@ -146,7 +145,7 @@ public class ApplicationBackendImpl implements ApplicationBackend {
 	{
 		return "Hello!";
 	}
-	
+
 	@Override
 	public void createTestEntries()
 	{
@@ -155,7 +154,6 @@ public class ApplicationBackendImpl implements ApplicationBackend {
 			DBPerson newPerson = createNewPerson();
 			newPerson.setName("Mr.X");
 			newPerson.setBirthdate(new Date((int)Math.random()*10, (int)Math.random()*10, (int)Math.random()*10));
-			newPerson.setGender("w");
 			newPerson.setPassword(getUserManager().getHashedPassword("123"));
 			
 			DBPost newPost = new DBPost();
@@ -171,5 +169,5 @@ public class ApplicationBackendImpl implements ApplicationBackend {
 	private String generateRandomString()
 	{
 		return java.util.UUID.randomUUID().toString();
-	}
+	}  
 }
