@@ -12,7 +12,6 @@ import javax.persistence.Query;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Date;
-import org.apache.tapestry5.annotations.SessionAttribute;
 
 /**
  * Created with IntelliJ IDEA.
