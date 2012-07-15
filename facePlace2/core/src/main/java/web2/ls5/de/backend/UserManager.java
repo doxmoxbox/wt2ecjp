@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import web2.ls5.de.entities.DBPerson;
-import org.apache.tapestry5.ioc.annotations.Inject;
+
 
 /**
  * UserManager
