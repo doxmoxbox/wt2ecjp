@@ -36,7 +36,7 @@
 				<t:label for="birthdate"/>:&nbsp;
 			</div>
 		</div>
-		<div class="row">
+		<div class="row" align="right">
 			<t:submit value="Register" />
 		</div>
 		<div class="row">

@@ -1,12 +1,24 @@
-	<form t:type="form" t:id="loginForm" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
-	
-		<t:label for="name"/>&nbsp;
-		<input t:type="TextField" label="Name" t:id="name" t:validate="required,minlength=3" size="25"/><br/>
+<form t:type="form" t:id="loginForm" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">		
+	<div>
+		<div class="row">
+			<div style="float: right;">
+				<input t:type="TextField" label="Name" t:id="name" t:validate="required,minlength=3" size="25"/>
+			</div>
+			<div style="float: right;">
+				<t:label for="name"/>&nbsp;
+			</div>
+		</div>
+		<div class="row">
+			<div style="float: right;">	
+				<input t:type="PasswordField" label="Passwort" t:id="password" t:validate="required,minlength=3" size="25"/>
+			</div>
+			<div style="float: right;">	
+				<t:label for="password"/>&nbsp;
+			</div>
 			
-		<t:label for="password"/>&nbsp;
-		<input t:type="PasswordField" label="Passwort" t:id="password" t:validate="required,minlength=3" size="25"/><br/>
-		
-		<input type="submit" value="Login"/>
-		&nbsp;
-		<a t:type="eventlink" t:event="GoHome" href="#">Logout</a>
+		</div>
+		<div style="clear:right;" align="right">
+			<input type="submit" value="Login"/>
+		</div>
+	</div>
 	</form>

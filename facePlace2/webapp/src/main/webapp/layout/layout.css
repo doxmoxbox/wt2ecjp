@@ -241,7 +241,15 @@ div.page {
 .post .entry .login .log 
 {
 	float: left;
-	margin: 100px 0px 0px 180px;
+	margin: 100px 0px 0px 160px;
+	/*border: 1px #999999 dashed;*/
+}
+
+.post .entry .login .log .row
+{
+	/*float: top;*/
+	padding: 10px 0px 10px 0px;
+	height: 30px;
 	/*border: 1px #999999 dashed;*/
 }
 
@@ -257,7 +265,7 @@ div.page {
 	/*float: top;*/
 	padding: 10px 0px 10px 0px;
 	height: 30px;
-	border: 1px #999999 dashed;
+	/*border: 1px #999999 dashed;*/
 }
 
 .post .entry .login .reg .row .cell
