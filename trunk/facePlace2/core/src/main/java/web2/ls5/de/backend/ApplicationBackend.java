@@ -13,6 +13,10 @@ import web2.ls5.de.entities.DBPost;
  */
 public interface ApplicationBackend 
 {
+	/* Test all */
+	
+	public String testAll();
+	
 	/* All about people: */
 	public DBPerson createNewPerson();
 	public Set<DBPerson> getAllPersons();

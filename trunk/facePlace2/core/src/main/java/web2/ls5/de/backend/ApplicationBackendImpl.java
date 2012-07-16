@@ -1,8 +1,9 @@
 package web2.ls5.de.backend;
 
-import web2.ls5.de.biz.persistence.Persistence;
+import web2.ls5.de.boundries.impls.GuiBoundryImpl;
 import web2.ls5.de.entities.DBPerson;
 import web2.ls5.de.entities.DBPost;
+import web2.ls5.de.persistence.Persistence;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -27,6 +28,12 @@ public class ApplicationBackendImpl implements ApplicationBackend {
 	@Inject
 	@Persistence
 	EntityManager em;
+	
+	GuiBoundryImpl gbi = new GuiBoundryImpl();
+	
+	public String testAll(){
+		return gbi.testAll();
+	}
 	
 	private UserManager um;
 	/**

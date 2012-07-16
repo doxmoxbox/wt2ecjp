@@ -18,7 +18,6 @@ public class User implements Comparable<User>{
 	private String username;
 	private String passwort;
 	private String name;
-	private Session session;
 
 	@Inject
 	FriendsList friendsList;	
@@ -38,7 +37,6 @@ public class User implements Comparable<User>{
 		this.username = username;
 		this.passwort = passwort;
 		this.name = name;
-		this.session = null;
 		
 		dbb.initUserToUsers(this);
 		dbb.initInvitations(this);
@@ -77,14 +75,6 @@ public class User implements Comparable<User>{
 
 	public void setName(String name) {
 		this.name = name;
-	}
-	
-	public Session getSession() {
-		return session;
-	}
-
-	public void setSession(Session session) {
-		this.session = session;
 	}
 
 	public FriendsList getFriendsList() {
