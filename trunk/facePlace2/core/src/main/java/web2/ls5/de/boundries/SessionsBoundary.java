@@ -1,7 +1,7 @@
 package web2.ls5.de.boundries;
 
-import web2.ls5.de.entities.atoms.Session;
-import web2.ls5.de.entities.atoms.User;
+import web2.ls5.de.biz.entities.atoms.Session;
+import web2.ls5.de.biz.entities.atoms.User;
 
 public interface SessionsBoundary {
 	

@@ -1,8 +1,8 @@
 package web2.ls5.de.boundries;
 
-import web2.ls5.de.entities.atoms.Invitation;
-import web2.ls5.de.entities.atoms.Posting;
-import web2.ls5.de.entities.atoms.User;
+import web2.ls5.de.biz.entities.atoms.Invitation;
+import web2.ls5.de.biz.entities.atoms.Posting;
+import web2.ls5.de.biz.entities.atoms.User;
 
 import java.util.Vector;
 import javax.inject.Named;

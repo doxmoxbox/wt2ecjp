@@ -1,11 +1,11 @@
-package web2.ls5.de.controller;
+package web2.ls5.de.biz.controller;
 
+import web2.ls5.de.biz.entities.atoms.Session;
+import web2.ls5.de.biz.entities.atoms.User;
 import web2.ls5.de.boundries.DbBoundry;
 import web2.ls5.de.boundries.SessionsBoundary;
 import web2.ls5.de.boundries.dummys.DbBoundryDummy;
 import web2.ls5.de.boundries.dummys.SessionsBoundaryDummy;
-import web2.ls5.de.entities.atoms.Session;
-import web2.ls5.de.entities.atoms.User;
 
 public class UserStatusController {
 

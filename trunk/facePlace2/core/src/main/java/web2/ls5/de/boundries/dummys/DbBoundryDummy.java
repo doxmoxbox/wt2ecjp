@@ -7,10 +7,10 @@ import javax.inject.Named;
 
 
 
+import web2.ls5.de.biz.entities.atoms.Invitation;
+import web2.ls5.de.biz.entities.atoms.Posting;
+import web2.ls5.de.biz.entities.atoms.User;
 import web2.ls5.de.boundries.DbBoundry;
-import web2.ls5.de.entities.atoms.Invitation;
-import web2.ls5.de.entities.atoms.Posting;
-import web2.ls5.de.entities.atoms.User;
 
 @Named
 public class DbBoundryDummy implements DbBoundry {

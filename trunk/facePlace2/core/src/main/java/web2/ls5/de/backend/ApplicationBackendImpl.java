@@ -1,8 +1,8 @@
 package web2.ls5.de.backend;
 
+import web2.ls5.de.biz.persistence.Persistence;
 import web2.ls5.de.entities.DBPerson;
 import web2.ls5.de.entities.DBPost;
-import web2.ls5.de.persistence.Persistence;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;

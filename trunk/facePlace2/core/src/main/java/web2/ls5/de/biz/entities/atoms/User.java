@@ -1,14 +1,14 @@
-package web2.ls5.de.entities.atoms;
+package web2.ls5.de.biz.entities.atoms;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.Vector;
 
+import web2.ls5.de.biz.entities.lists.FriendsList;
+import web2.ls5.de.biz.entities.lists.InvitationsList;
+import web2.ls5.de.biz.entities.lists.PostingList;
 import web2.ls5.de.boundries.DbBoundry;
 import web2.ls5.de.boundries.dummys.DbBoundryDummy;
-import web2.ls5.de.entities.lists.FriendsList;
-import web2.ls5.de.entities.lists.InvitationsList;
-import web2.ls5.de.entities.lists.PostingList;
 
 @Named
 public class User implements Comparable<User>{

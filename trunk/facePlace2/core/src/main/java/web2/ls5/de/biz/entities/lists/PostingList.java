@@ -1,8 +1,8 @@
-package web2.ls5.de.entities.lists;
+package web2.ls5.de.biz.entities.lists;
 
 import javax.inject.Named;
 
-import web2.ls5.de.entities.atoms.Posting;
+import web2.ls5.de.biz.entities.atoms.Posting;
 
 import java.util.Vector;
 
