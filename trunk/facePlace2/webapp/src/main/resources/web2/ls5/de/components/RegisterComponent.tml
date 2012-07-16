@@ -1,25 +1,46 @@
 <form t:type="form" t:id="registerForm" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
-    	<t:errors/>
-    	<t:label for="registerName"/>:
-    	<input t:type="TextField" t:id="registerName" value="name" t:validate="required,minlength=3" size="30"/>
-    	
-    	<br/>
-    	
-    	<t:label for="registerPassword"/>:
-    	<input t:type="PasswordField" t:id="registerPassword" value="password" t:validate="required,minlength=3" size="30"/>
-    
-    	<br/>
-    	
-    	<t:label for="repeatPassword"/>:
-    	<input t:type="PasswordField" t:id="repeatPassword" value="repeatPassword" t:validate="required,minlength=3" size="30"/>
-    	
-    	<br/>
-    
-    	<t:label for="birthdate"/>:
-    	<input t:type="DateField" value="birthdate" t:id="birthdate" t:validate="required"/>  
-    
-    	<br/>
-    
-    	<t:submit value="Register" />
-        
+
+	<div>
+		<div class="row">
+			<div style="float:right;">
+				<input t:type="TextField" t:id="registerName" value="name" t:validate="required,minlength=3" size="30"/>
+			</div>
+			<div style="float:right;">
+				<t:label for="registerName"/>:&nbsp;
+			</div>
+		</div>
+		
+		<div class="row">
+			<div style="float:right;">
+				<input t:type="PasswordField" t:id="registerPassword" value="password" t:validate="required,minlength=3" size="30"/>
+			</div>
+			<div style="float:right;">
+				<t:label for="registerPassword"/>:&nbsp;
+			</div>
+		</div>
+		
+		<div class="row">
+			<div style="float:right;">
+				<input t:type="PasswordField" t:id="repeatPassword" value="repeatPassword" t:validate="required,minlength=3" size="30"/>
+			</div>
+			<div style="float:right;">
+				<t:label for="repeatPassword"/>:&nbsp;
+			</div>
+		</div>
+		
+		<div class="row">
+			<div style="float:right;">
+				<input t:type="DateField" value="birthdate" t:id="birthdate" t:validate="required"/> 
+			</div>
+			<div style="float:right;">
+				<t:label for="birthdate"/>:&nbsp;
+			</div>
+		</div>
+		<div class="row">
+			<t:submit value="Register" />
+		</div>
+		<div class="row">
+			<t:errors/>
+		</div>
+	</div>     
   </form>

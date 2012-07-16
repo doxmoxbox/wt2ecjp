@@ -1,0 +1,8 @@
+<form t:type="form" t:id="postForm" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+	
+	<t:textarea value="txt" cols="80" rows="3"/>
+	<br/>
+	<input type="submit" value="Post"/>
+	&nbsp;
+	
+</form>

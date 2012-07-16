@@ -3,12 +3,12 @@
       xmlns:p="tapestry:parameter">
         <!-- Most of the page content, including <head>, <body>, etc. tags, comes from Layout.tml -->
 	
-    <p>${message:greeting}</p>
+    <h2>${message:greeting}</h2>
     <div class="login">
-    	<div style="float: left; border: 1px #999999 dashed;">
+    	<div class="log">
     		<t:logincomponent/>
     	</div>
-    	<div style="float: right; border: 1px #999999 dashed;">
+    	<div class="reg">
     		<t:registercomponent/>
     	</div>
     </div>

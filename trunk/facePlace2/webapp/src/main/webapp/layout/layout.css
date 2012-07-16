@@ -141,7 +141,7 @@ div.menu .current_page_item a {
 /* Page */
 
 div.page {
-    padding: 40px 40px 0 40px;
+    padding: 20px 40px 0 40px;
 }
 
 /* Content */
@@ -178,15 +178,85 @@ div.page {
 }
 
 .post .entry {
-    padding: 20px 0px 20px 0px;
+    padding: 10px 0px 10px 0px;
 }
 
-.post .entry .login {
+.post .entry .home .top
+{
+	float: top;
+	border: 1px #999999 dashed;
+}
+
+.post .entry .home .top .user
+{
+	float: left;
+	border: 1px #999999 dashed;
+}
+
+.post .entry .home .top .msgs
+{
+	float: right; 
+	border: 1px #999999 dashed;
+}
+
+.post .entry .home .bottom
+{
+	clear:left;
+	border: 1px #999999 dashed;
+}
+
+.post .entry .home .bottom .posts
+{
+	float: left;
+	width: auto;
+	border: 1px #999999 dashed;
+}
+
+.post .entry .home .bottom .friends
+{
+	float: right;
+	border: 1px #999999 dashed;
+}
+
+
+/*.post .entry .login {
 	line-height:250%;
     width:auto;
     border: 1px #999999 dashed;
     margin:1em 20%;
     text-align: center;
+}*/
+
+.post .entry .login 
+{
+	/*border: 1px #999999 dashed;*/
+}
+
+.post .entry .login .log 
+{
+	float: left;
+	margin: 100px 0px 0px 180px;
+	/*border: 1px #999999 dashed;*/
+}
+
+.post .entry .login .reg 
+{
+	float: right;
+	margin: 20px 180px 0px 0px;
+	/*border: 1px #999999 dashed;*/
+}
+
+.post .entry .login .reg .row
+{
+	/*float: top;*/
+	padding: 10px 0px 10px 0px;
+	height: 30px;
+	border: 1px #999999 dashed;
+}
+
+.post .entry .login .reg .row .cell
+{
+	margin: 2px 2px 2px 2px;
 }
 
 .post .links {
@@ -375,3 +445,5 @@ div.footer .css {
 div.footer .legal a {
     padding: 0;
 }
+
+

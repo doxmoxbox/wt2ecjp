@@ -2,14 +2,10 @@ package web2.ls5.de.pages;
 
 import java.util.Set;
 
-import org.apache.tapestry5.*;
+import org.apache.tapestry5.alerts.AlertManager;
 import org.apache.tapestry5.annotations.*;
 import org.apache.tapestry5.ioc.annotations.*;
-import org.apache.tapestry5.BindingConstants;
-import org.apache.tapestry5.SymbolConstants;
-
 import web2.ls5.de.backend.ApplicationBackend;
-import web2.ls5.de.components.Layout;
 import web2.ls5.de.entities.DBPerson;
 import web2.ls5.de.entities.DBPost;
 
@@ -24,15 +20,26 @@ public class Home
 	private DBPerson loggedInPerson;
 	
 	@Inject
-	private ApplicationBackend backend;
-	
+	private AlertManager alertManager;
+
 	@Property
 	private DBPost post;
+	
+	//@Component
+	//private PostingComponent postsComponent;
+	
+	@Inject
+	private ApplicationBackend backend;
 	
 	public Set<DBPost> getPosts()
 	{
 		return backend.getAllPosts();
 	}
+	
+	public void onActionFromTestMsg()
+    {
+    	alertManager.info("Muhaha Test");
+    }
 	
 	
 	

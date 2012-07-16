@@ -7,6 +7,8 @@ import org.apache.tapestry5.corelib.components.*;
 import org.apache.tapestry5.SymbolConstants;
 import org.apache.tapestry5.alerts.AlertManager;
 
+import web2.ls5.de.backend.ApplicationBackend;
+
 /**
  * Start page of application demoprojekt.
  */
@@ -19,6 +21,9 @@ public class Test
 
     @InjectComponent
     private Zone zone;
+    
+    @Inject 
+    ApplicationBackend backend;
 
     @Persist
     @Property
@@ -30,6 +35,11 @@ public class Test
     public Date getCurrentTime()
     {
         return new Date();
+    }
+    
+    void onActionFromTestAll()
+    {
+    	alertManager.info(backend.sayHello());
     }
     
     void onActionFromIncrement()
