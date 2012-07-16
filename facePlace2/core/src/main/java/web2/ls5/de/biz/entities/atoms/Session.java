@@ -1,4 +1,4 @@
-package web2.ls5.de.entities.atoms;
+package web2.ls5.de.biz.entities.atoms;
 
 
 public class Session {

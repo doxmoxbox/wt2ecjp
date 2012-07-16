@@ -1,8 +1,8 @@
-package web2.ls5.de.entities.atoms;
+package web2.ls5.de.biz.entities.atoms;
 
 import javax.inject.Named;
 
-import web2.ls5.de.entities.lists.InvitationsList;
+import web2.ls5.de.biz.entities.lists.InvitationsList;
 
 @Named
 public class Invitation {

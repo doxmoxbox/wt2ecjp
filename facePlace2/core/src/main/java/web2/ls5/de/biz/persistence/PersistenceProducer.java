@@ -1,4 +1,4 @@
-package web2.ls5.de.persistence;
+package web2.ls5.de.biz.persistence;
 
 import javax.ejb.Stateless;
 import javax.enterprise.context.RequestScoped;

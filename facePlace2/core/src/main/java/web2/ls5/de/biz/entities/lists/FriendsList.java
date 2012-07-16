@@ -1,9 +1,9 @@
-package web2.ls5.de.entities.lists;
+package web2.ls5.de.biz.entities.lists;
 
 import java.util.List;
 import javax.inject.Named;
 
-import web2.ls5.de.entities.atoms.User;
+import web2.ls5.de.biz.entities.atoms.User;
 
 @Named
 public class FriendsList {

@@ -4,9 +4,9 @@ import java.util.Vector;
 
 
 
+import web2.ls5.de.biz.entities.atoms.Session;
+import web2.ls5.de.biz.entities.atoms.User;
 import web2.ls5.de.boundries.SessionsBoundary;
-import web2.ls5.de.entities.atoms.Session;
-import web2.ls5.de.entities.atoms.User;
 
 public class SessionsBoundaryDummy implements SessionsBoundary {
 

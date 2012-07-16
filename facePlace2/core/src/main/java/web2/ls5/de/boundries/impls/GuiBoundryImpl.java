@@ -4,14 +4,14 @@ import java.util.Vector;
 import javax.inject.Named;
 
 
+import web2.ls5.de.biz.controller.SearchEngineController;
+import web2.ls5.de.biz.controller.UserStatusController;
+import web2.ls5.de.biz.entities.atoms.Invitation;
+import web2.ls5.de.biz.entities.atoms.Posting;
+import web2.ls5.de.biz.entities.atoms.Session;
+import web2.ls5.de.biz.entities.atoms.User;
 import web2.ls5.de.boundries.SessionsBoundary;
 import web2.ls5.de.boundries.dummys.SessionsBoundaryDummy;
-import web2.ls5.de.controller.SearchEngineController;
-import web2.ls5.de.controller.UserStatusController;
-import web2.ls5.de.entities.atoms.Invitation;
-import web2.ls5.de.entities.atoms.Posting;
-import web2.ls5.de.entities.atoms.Session;
-import web2.ls5.de.entities.atoms.User;
 
 @Named
 public class GuiBoundryImpl {

@@ -1,10 +1,10 @@
-package web2.ls5.de.controller;
+package web2.ls5.de.biz.controller;
 
 import java.util.Collections;
 import java.util.Vector;
 import javax.inject.Named;
 
-import web2.ls5.de.entities.atoms.User;
+import web2.ls5.de.biz.entities.atoms.User;
 
 @Named
 public class SearchEngineController {

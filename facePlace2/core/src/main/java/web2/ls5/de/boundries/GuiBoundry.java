@@ -3,10 +3,10 @@ package web2.ls5.de.boundries;
 import java.util.Vector;
 import javax.inject.Named;
 
-import web2.ls5.de.entities.atoms.Invitation;
-import web2.ls5.de.entities.atoms.Posting;
-import web2.ls5.de.entities.atoms.Session;
-import web2.ls5.de.entities.atoms.User;
+import web2.ls5.de.biz.entities.atoms.Invitation;
+import web2.ls5.de.biz.entities.atoms.Posting;
+import web2.ls5.de.biz.entities.atoms.Session;
+import web2.ls5.de.biz.entities.atoms.User;
 
 @Named
 public interface GuiBoundry {
