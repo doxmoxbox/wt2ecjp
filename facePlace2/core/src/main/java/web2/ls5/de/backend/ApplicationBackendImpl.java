@@ -29,10 +29,11 @@ public class ApplicationBackendImpl implements ApplicationBackend {
 	@Persistence
 	EntityManager em;
 	
-	GuiBoundryImpl gbi = new GuiBoundryImpl();
+	//GuiBoundryImpl gbi = new GuiBoundryImpl();
 	
 	public String testAll(){
-		return gbi.testAll();
+		return "huhu";
+		//return gbi.testAll();
 	}
 	
 	private UserManager um;
