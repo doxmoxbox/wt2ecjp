@@ -14,7 +14,7 @@ public class About
   @Inject
 	ApplicationBackend backend;
   
-  @SessionState
+  @SessionState(create=false)
   private DBPerson loggedInPerson;
 
   private Logger log = Logger.getLogger(About.class.getName());
