@@ -1,62 +1,83 @@
 package web2.ls5.de.backend;
 
-import web2.ls5.de.boundries.impls.GuiBoundryImpl;
-import web2.ls5.de.entities.DBPerson;
-import web2.ls5.de.entities.DBPost;
-import web2.ls5.de.persistence.Persistence;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.Vector;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.Date;
 
-/**
- * Created with IntelliJ IDEA.
- * User: merten
- * Date: 09.05.12
- * Time: 08:12
- * To change this template use File | Settings | File Templates.
- */
+import web2.ls5.de.biz.controller.SearchEngineController;
+import web2.ls5.de.biz.controller.UserStatusController;
+import web2.ls5.de.biz.entities.atoms.Invitation;
+import web2.ls5.de.biz.entities.atoms.Posting;
+import web2.ls5.de.biz.entities.atoms.User;
+import web2.ls5.de.entities.DBPerson;
+import web2.ls5.de.entities.DBPost;
+import web2.ls5.de.persistence.Persistence;
+
+
 @Named("applicationBackend")
 @RequestScoped
-public class ApplicationBackendImpl implements ApplicationBackend {
+public class ApplicationBackendImpl implements ApplicationBackend 
+{
 
 	@Inject
 	@Persistence
 	EntityManager em;
 	
-	//GuiBoundryImpl gbi = new GuiBoundryImpl();
-	
-	public String testAll(){
-		return "huhu";
-		//return gbi.testAll();
-	}
-	
 	private UserManager um;
-	/**
-	 * Absolut ueberfluessig!
-	 */
-	@Override
-	public UserManager getUserManager()
-	{
-		if(um != null) return um;
-		else 
-		{
-			um = new UserManager(em);
-			return um;
-		}
-	}
+	
+	UserStatusController us = new UserStatusController();
+	
+	SearchEngineController se = new SearchEngineController();
+	
 	/* 
 	 * -----------------------------------
-	 * All about people: 				--
+	 * All about user: 				--
 	 * -----------------------------------
 	 */
 	
-	@Override
+	public void endFriendship(User shooter, User shooted)
+	{
+		shooter.endFrindship(shooted);
+	}
+	
+	public User login(String username, String passwort)
+	{
+		return us.login(username, passwort);
+	}
+	
+	public Vector<User> searchNames(String prefix)
+	{
+		return se.searchNames(prefix);
+	}
+	
+	public void invite(User inviter, User invitee)
+	{
+		inviter.invite(invitee);
+	}
+	
+	public Vector<Invitation> chooseInivitation(User invitee)
+	{
+		return invitee.getInvitationsList().getInvitations();
+	}
+	
+	public void startFriendship(Invitation invitation)
+	{
+		invitation.approve();
+	}
+	
+	public User register(String username, String passwort, String name)
+	{
+		return us.register(username, passwort, name);
+	}
+	
+
 	public DBPerson createNewPerson() 
 	{
 		DBPerson newperson = new DBPerson();
@@ -66,21 +87,21 @@ public class ApplicationBackendImpl implements ApplicationBackend {
 		return newperson;
 	}
 
-	@Override
+
 	public Set<DBPerson> getAllPersons() 
 	{
 		Query q = em.createQuery("SELECT p FROM DBPerson p", DBPerson.class);
 		return new HashSet<DBPerson>(q.getResultList());
 	}
 
-	@Override
 	public DBPerson getPerson(long id) 
 	{
 		return em.find(DBPerson.class, id);
 	}
 
-	@Override
-	public void removePerson(long id) {
+
+	public void removePerson(long id) 
+	{
 		DBPerson p = getPerson(id);
 		if(p != null) {
 			em.remove(p);
@@ -93,14 +114,23 @@ public class ApplicationBackendImpl implements ApplicationBackend {
 	 * ---------------------------
 	 */
 	 
-	@Override
+	public void post(User poster, String text)
+	{
+		poster.postOnAllWalls(text);
+	}
+	
+	public Vector<Posting> getPostsWall(User user)
+	{
+		return user.getPostingsList().getPostingsList();
+	}
+
 	public Set<DBPost> getAllPosts() 
 	{
 		Query q = em.createQuery("SELECT p FROM DBPost p", DBPost.class);
 		return new HashSet<DBPost>(q.getResultList());
 	}
 	
-	@Override
+
 	public Set<DBPost> getAllPostsFromPerson(long id) 
 	{
 		Query q = em.createQuery("SELECT p FROM DBPost p WHERE p.creator = "+ id, DBPost.class);
@@ -111,7 +141,7 @@ public class ApplicationBackendImpl implements ApplicationBackend {
 	 * Creates new post, stores in DB and returns it.
 	 * @return New created post.
 	 */
-	@Override
+
 	public DBPost createNewPost()
 	{
 		DBPost newPost = new DBPost();
@@ -134,7 +164,7 @@ public class ApplicationBackendImpl implements ApplicationBackend {
 	/**
 	 * Returns post by given id.
 	 */
-	@Override
+
 	public DBPost getPost(long id) 
 	{
 		return em.find(DBPost.class, id);
@@ -147,13 +177,31 @@ public class ApplicationBackendImpl implements ApplicationBackend {
 	 * ---------------------------
 	 */
 	
-	@Override
+
 	public String sayHello() 
 	{
 		return "Hello!";
 	}
 
-	@Override
+	public String testAll()
+	{
+		return "huhu";
+		//return gbi.testAll();
+	}
+	
+	/**
+	 * Absolut ueberfluessig!
+	 */
+	public UserManager getUserManager()
+	{
+		if(um != null) return um;
+		else 
+		{
+			um = new UserManager(em);
+			return um;
+		}
+	}
+
 	public void createTestEntries()
 	{
 		for(int i=0; i<15;i++)

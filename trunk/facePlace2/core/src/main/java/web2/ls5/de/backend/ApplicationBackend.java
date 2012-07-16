@@ -1,18 +1,31 @@
 package web2.ls5.de.backend;
 
 import java.util.Set;
+import java.util.Vector;
+
+import web2.ls5.de.biz.entities.atoms.Invitation;
+import web2.ls5.de.biz.entities.atoms.Posting;
+import web2.ls5.de.biz.entities.atoms.User;
 import web2.ls5.de.entities.DBPerson;
 import web2.ls5.de.entities.DBPost;
 
-/**
- * Created with IntelliJ IDEA.
- * User: merten
- * Date: 09.05.12
- * Time: 08:11
- * To change this template use File | Settings | File Templates.
- */
+
 public interface ApplicationBackend 
 {
+	
+	/*Neu von Emil*/
+	public void endFriendship(User shooter, User shooted);
+	public User login(String username, String passwort);
+	public Vector<User> searchNames(String prefix);
+	public void invite(User inviter, User invitee);
+	public Vector<Invitation> chooseInivitation(User invitee);
+	public void startFriendship(Invitation invitation);
+	public User register(String username, String passwort, String name);
+	
+	public void post(User poster, String text);
+	public Vector<Posting> getPostsWall(User user);
+	
+	
 	/* Test all */
 	
 	public String testAll();
