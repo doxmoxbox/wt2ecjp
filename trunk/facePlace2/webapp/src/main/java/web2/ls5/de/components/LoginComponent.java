@@ -58,12 +58,6 @@ public class LoginComponent {
 		return "Home";
 	}
 	
-	Object onGoHome() {
-		
-		loggedInPerson = null;
-		return "Index";
-	}
-	
 	public String getHello() 
 	{
 		return "My LoginBox";

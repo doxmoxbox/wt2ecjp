@@ -29,7 +29,9 @@ public class RegisterComponent
   ApplicationBackend backend;
   @Component
   private Form registerForm;
+  
   private UserManager authenticator = backend.getUserManager();
+  
   @Component(id = "registerPassword")
   private PasswordField registerPasswordField;
   

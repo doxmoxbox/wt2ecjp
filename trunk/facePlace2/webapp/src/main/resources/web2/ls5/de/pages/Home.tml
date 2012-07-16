@@ -23,7 +23,7 @@
 				<div>
 					<t:postingcomponent/>
 				</div>
-				<t:grid source="posts" row="post">
+				<t:grid source="posts" row="post" inplace="true">
 
 				</t:grid>
 			</div>
