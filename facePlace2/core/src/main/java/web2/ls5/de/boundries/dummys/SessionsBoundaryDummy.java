@@ -1,15 +1,10 @@
 package web2.ls5.de.boundries.dummys;
 
 import java.util.Vector;
-
-
-
-import web2.ls5.de.biz.entities.atoms.Session;
 import web2.ls5.de.biz.entities.atoms.User;
-import web2.ls5.de.boundries.SessionsBoundary;
 
-public class SessionsBoundaryDummy implements SessionsBoundary {
-
+public class SessionsBoundaryDummy {
+/*
 	Vector<Session> sessions;
 	
 	public SessionsBoundaryDummy() {
@@ -56,4 +51,4 @@ public class SessionsBoundaryDummy implements SessionsBoundary {
 			return false;
 		}
 	}
-}
+*/}

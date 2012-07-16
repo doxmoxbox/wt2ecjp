@@ -1,4 +1,4 @@
-package web2.ls5.de.biz.persistence;
+package web2.ls5.de.persistence;
 
 import javax.inject.Qualifier;
 import java.lang.annotation.Retention;

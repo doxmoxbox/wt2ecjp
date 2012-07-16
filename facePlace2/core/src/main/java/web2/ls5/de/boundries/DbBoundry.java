@@ -18,7 +18,7 @@ public interface DbBoundry {
 	 * Hashtable<User, Vector<User>> friends;
 	 */
 	
-	//New User init
+	//New User init - create empty tables
 	
 	public void initUserToUsers(User user);	
 	public void initInvitations(User user);

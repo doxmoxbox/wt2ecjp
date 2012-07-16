@@ -5,21 +5,17 @@ import javax.inject.Named;
 
 import web2.ls5.de.biz.entities.atoms.Invitation;
 import web2.ls5.de.biz.entities.atoms.Posting;
-import web2.ls5.de.biz.entities.atoms.Session;
 import web2.ls5.de.biz.entities.atoms.User;
 
 @Named
 public interface GuiBoundry {
+	
+	public String testAll();
 
 	// User status
 	
-	public Session openNewBrowserSession();
-	
-	public boolean register(String username, String passwort, String name);
-	public boolean login(Session session, String username, String passwort);
-	public boolean logout(Session session, User user);
-	
-	public boolean closeBrowserSession(Session session);
+	public User register(String username, String passwort, String name);
+	public User login(String username, String passwort);
 	
 	//Search - invie - ignore or accept(= startFriendship) - endFriendship
 	
