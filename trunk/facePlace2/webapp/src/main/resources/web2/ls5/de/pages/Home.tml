@@ -2,17 +2,39 @@
 		title="Home"
 		xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
 		xmlns:p="tapestry:parameter">
-      
-	<p>Home-Side des Users kommt hier hin.</p>
-	<div style="border: 1px #999999 dashed">
-		<t:if test="loggedInPerson">
-    	<p>Current user logged in is:</p>
-    	<t:beandisplay object="loggedInPerson"/>
+
+<div style="border: 1px #999999 dashed;">
+	<t:if test="loggedInPerson">
+		<div style="float: top; border: 1px #999999 dashed;">
+			<div style="float: left; border: 1px #999999 dashed;">
+				<t:beandisplay object="loggedInPerson"/>
+			</div>
+			<div style="float: right; border: 1px #999999 dashed;">
+				<h2>Benachrichtigungen</h2>
+				balbla
+			</div>
+		</div>
+		
+		<!-- UserPosts -->
+		
+		<div style="clear:left; border: 1px #999999 dashed;">
+    		<div style="float: left; border: 1px #999999 dashed;">
+				<h2>Posts</h2>
+				<t:grid source="posts" row="post">
+
+				</t:grid>
+			</div>
+			<div style="float: right; border: 1px #999999 dashed;">
+				<h2>Freunde</h2>
+			</div>
+		</div>
+			
+		<!-- No User is logged in -->    	
+			
     	<p:else>
-    		<p>Nobody is logged in!</p>
-    	</p:else>
+		<p>Nobody is logged in!</p>
+	</p:else>
     </t:if>
-	</div>
-      
+</div>
       
 </html>
