@@ -7,6 +7,7 @@ import org.apache.tapestry5.BindingConstants;
 import org.apache.tapestry5.SymbolConstants;
 
 import web2.ls5.de.components.Layout;
+import web2.ls5.de.entities.DBPerson;
 
 /**
  * Page for Userhome. Contains other components.
@@ -14,12 +15,9 @@ import web2.ls5.de.components.Layout;
  */
 public class Home 
 {
-	//@Inject
-	//private Layout layout;
+	@Property
+	@SessionState(create=false)
+	private DBPerson loggedInPerson;
 	
-	//@PageLoaded
-	//private void pageLoaded() 
-	//{
-	//	layout.showSidebar(false);
-	//}
+	
 }

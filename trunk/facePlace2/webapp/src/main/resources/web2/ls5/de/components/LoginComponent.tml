@@ -8,4 +8,5 @@
 		
 		<input type="submit" value="Login"/>
 		&nbsp;
+		<a t:type="eventlink" t:event="GoHome" href="#">Logout</a>
 	</form>
