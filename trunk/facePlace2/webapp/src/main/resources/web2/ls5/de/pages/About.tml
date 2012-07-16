@@ -4,6 +4,11 @@
 
     <p>About demoprojekt application ...</p>
 
-    <p>Current user logged in is:</p>
-    <t:beandisplay object="loggedInPerson"/>
+	<t:if test="loggedInPerson">
+    	<p>Current user logged in is:</p>
+    	<t:beandisplay object="loggedInPerson"/>
+    	<p:else>
+    		<p>Nobody is logged in!</p>
+    	</p:else>
+    </t:if>
 </html>
