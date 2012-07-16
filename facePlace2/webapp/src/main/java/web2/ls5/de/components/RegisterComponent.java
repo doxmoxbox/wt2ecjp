@@ -44,7 +44,7 @@ public class RegisterComponent
    *
    */
   Object onSuccess() {
-    return "Index";
+    return "Home";
   }
 
   public String getName() {

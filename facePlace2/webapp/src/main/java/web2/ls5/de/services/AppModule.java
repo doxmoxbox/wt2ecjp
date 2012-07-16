@@ -16,6 +16,7 @@ import org.apache.tapestry5.ioc.services.ClasspathURLConverter;
 import org.apache.tapestry5.services.*;
 import org.slf4j.Logger;
 import web2.ls5.de.backend.ApplicationBackend;
+import web2.ls5.de.boundries.GuiBoundry;
 
 import javax.enterprise.context.spi.CreationalContext;
 import javax.enterprise.inject.spi.Bean;
@@ -293,5 +294,7 @@ public class AppModule
 		return buildController(ApplicationBackend.class, "applicationBackend");
 	}
 
-
+	public GuiBoundry buildGuiBoundry() {
+		return buildController(GuiBoundry.class, "guiBoundry");
+	}
 }
