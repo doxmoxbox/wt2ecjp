@@ -42,7 +42,13 @@ public class LoginComponent {
 	Object onSuccess() 
 	{
 		return "Home";
-	}	
+	}
+	
+	Object onGoHome() {
+		
+		loggedInPerson = null;
+		return "Index";
+	}
 	
 	public String getHello() 
 	{

@@ -5,7 +5,13 @@
       
 	<p>Home-Side des Users kommt hier hin.</p>
 	<div style="border: 1px #999999 dashed">
-		bla
+		<t:if test="loggedInPerson">
+    	<p>Current user logged in is:</p>
+    	<t:beandisplay object="loggedInPerson"/>
+    	<p:else>
+    		<p>Nobody is logged in!</p>
+    	</p:else>
+    </t:if>
 	</div>
       
       
