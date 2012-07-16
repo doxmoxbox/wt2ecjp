@@ -39,7 +39,7 @@ public class Test
     
     void onActionFromTestAll()
     {
-    	alertManager.info(backend.sayHello());
+    	alertManager.info(backend.testAll());
     }
     
     void onActionFromIncrement()
