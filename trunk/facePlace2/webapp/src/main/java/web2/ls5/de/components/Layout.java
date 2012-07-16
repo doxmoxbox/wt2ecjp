@@ -6,6 +6,8 @@ import org.apache.tapestry5.ioc.annotations.*;
 import org.apache.tapestry5.BindingConstants;
 import org.apache.tapestry5.SymbolConstants;
 
+import web2.ls5.de.entities.DBPerson;
+
 /**
  * Layout component for pages of application demoprojekt.
  */
@@ -40,7 +42,16 @@ public class Layout
     
     @Property
     private boolean showSidebar;
+    
+    @Property
+	@SessionState(create=false)
+	private DBPerson loggedInPerson;
 
+    Object onGoHome() 
+    {
+		loggedInPerson = null;
+		return "Index";
+	}
 
     public String getClassForPageName()
     {

@@ -31,6 +31,11 @@ Description: A Web 2.0 design with fluid width suitable for blogs and small webs
 		</div>
 		<div class="menu">
 			<ul>
+				<t:if test="loggedInPerson">
+					<li>
+						<a t:type="eventlink" t:event="GoHome" href="#"><strong>Logout</strong></a>
+					</li>
+				</t:if>
 				<li t:type="loop" source="pageNames" value="pageName" class="prop:classForPageName">
 					<t:pagelink page="prop:pageName">${pageName}</t:pagelink>
 				</li>

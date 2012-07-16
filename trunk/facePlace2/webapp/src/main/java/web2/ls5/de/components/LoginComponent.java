@@ -7,16 +7,12 @@ import org.apache.tapestry5.corelib.components.PasswordField;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import web2.ls5.de.backend.ApplicationBackend;
 import web2.ls5.de.backend.UserManager;
-import web2.ls5.de.boundries.GuiBoundry;
 import web2.ls5.de.entities.DBPerson;
 
 public class LoginComponent {
 
   @Inject
   ApplicationBackend backend;
-  
-  @Inject
-  GuiBoundry guiBackend;
   
   @Component
   private Form loginForm;
