@@ -1,18 +1,23 @@
 package web2.ls5.de.pages;
 
-import java.util.Date;
-import org.apache.tapestry5.annotations.*;
-import org.apache.tapestry5.ioc.annotations.*;
-import org.apache.tapestry5.corelib.components.*;
-import org.apache.tapestry5.SymbolConstants;
-import org.apache.tapestry5.alerts.AlertManager;
+import org.apache.tapestry5.annotations.Property;
+import org.apache.tapestry5.annotations.SessionState;
+
+import web2.ls5.de.entities.DBPerson;
+
 
 /**
  * Start page of application demoprojekt.
  */
 public class Index
 {
-	public String getGreeting() {
+	@Property
+	@SessionState(create=false)
+	private DBPerson loggedInPerson;
+	
+	
+	public String getGreeting()
+	{
 		return "Willkommen auf facePlace++!";
 	}
 }

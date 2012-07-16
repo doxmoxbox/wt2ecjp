@@ -3,13 +3,22 @@
       xmlns:p="tapestry:parameter">
         <!-- Most of the page content, including <head>, <body>, etc. tags, comes from Layout.tml -->
 	
-    <h2>${message:greeting}</h2>
-    <div class="login">
-    	<div class="log">
-    		<t:logincomponent/>
-    	</div>
-    	<div class="reg">
-    		<t:registercomponent/>
-    	</div>
-    </div>
+	<h2>${message:greeting}</h2>
+	<t:if test="loggedInPerson">
+		<div class="welcome">
+			<h1>
+				Hallo ${loggedInPerson.name}!
+			</h1>
+		</div>
+		<p:else>
+			<div class="login">
+	    		<div class="log">
+	    			<t:logincomponent/>
+	    		</div>
+	    		<div class="reg">
+	    			<t:registercomponent/>
+	    		</div>
+	    	</div>
+		</p:else>
+	</t:if>
 </html>

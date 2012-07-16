@@ -232,6 +232,12 @@ div.page {
 	/*border: 1px #999999 dashed;*/
 }
 
+.post .entry .welcome
+{
+	text-align: center;
+	width: auto;
+}
+
 .post .entry .login .log 
 {
 	float: left;
