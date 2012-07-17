@@ -3,34 +3,47 @@
 		xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
 		xmlns:p="tapestry:parameter">
 		
-		<p>FaceFind! :D</p>
-	
-                <div class="search">
-	    		<h2>Suchen</h2>
-                <form t:type="form" t:id="searchForm">
-	
-                <div style="margin-left: 20px;">
-		<div style="float:top;" align="left">
-			<t:textarea value="txt" cols="80" rows="3"/>
+	<div style="float:top;">
+		<div style="float:left;">
+			<h2>Suchen</h2>
+			<form t:type="form" t:id="searchForm">
+				<div style="float:left;">
+					<div style="float:top;" align="left">
+						<t:TextField value="txt" cols="40"/>
+					</div>
+					<div style="float:top;" align="right">
+					<input type="submit" value="Suchen"/>
+					</div>
+				</div>     
+			</form>
 		</div>
-		<div style="float:top;" align="left">
-			<input type="submit" value="Suchen"/>
-		</div>      
-                 </div>	
-                 </form>
-                
-                <br/><br/>
-                <div class="result">
-                        <h2>Suchergebnis</h2> <br/>
-                          <form t:type="form" t:id="resultForm">
+		
+		<div style="float:right;">
+			<h2>Freundschaftsanfragen</h2>
+			<t:grid source="invites" row="invite" rowsPerPage="10" exclude="id" add="add,ignor">
+				<p:addcell>
+                	<t:actionlink t:id="addfriend" context="invite.id">[+]</t:actionlink>
+            	</p:addcell>
+            	<p:ignorcell>
+            		<t:actionlink t:id="ignorfriend" context="invite.id">[-]</t:actionlink>
+				</p:ignorcell>
+			</t:grid>
+		</div>
+	</div>
+	
+	<br/>
+	
+	<div style="clear:left;">
+		<h2>Suchergebnis</h2> <br/>
+		<form t:type="form" t:id="resultForm">
 
-                            <t:label for="chosenPerson"/>:
-                            <t:select t:id="chosenPerson" model="searchResult"/>
+			<t:label for="chosenPerson"/>:
+			<t:select t:id="chosenPerson" model="searchResult"/>
 
-                            <br/><br/>
+			<br/><br/>
 
-                            <input type="submit" value="Send invitation"/>
-                        </form>
-                  </div> 
-                </div>
+			<input type="submit" value="Send invitation"/>
+		</form>
+	</div> 
+
 </html>
