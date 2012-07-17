@@ -38,7 +38,9 @@ public class FaceFind {
     Set<DBPerson> result = backend.findPersons(txt);
     if (!result.isEmpty()) {
       for (DBPerson p : result) {
-        searchResult.add(p.getName());
+        if(!loggedInPerson.getName().equals(p.getName())) {
+          searchResult.add(p.getName());
+        }        
       }
     }
   }
