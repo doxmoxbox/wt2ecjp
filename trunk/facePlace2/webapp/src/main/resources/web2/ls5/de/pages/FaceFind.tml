@@ -1,0 +1,7 @@
+<html 	t:type="layout" 
+		title="Home"
+		xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+		xmlns:p="tapestry:parameter">
+		
+		<p>FaceFind! :D</p>
+</html>
