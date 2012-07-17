@@ -1,8 +1,9 @@
 package web2.ls5.de.boundries;
 
+import java.util.List;
 import web2.ls5.de.biz.entities.atoms.Invitation;
 import web2.ls5.de.biz.entities.atoms.Posting;
-import web2.ls5.de.biz.entities.atoms.User;
+import web2.ls5.de.biz.entities.atoms.UserPerson;
 
 import java.util.Vector;
 import javax.inject.Named;
@@ -18,29 +19,28 @@ public interface DbBoundry {
 	 * Hashtable<User, Vector<User>> friends;
 	 */
 	
-	//New User init - create empty tables
-	
-	public void initUserToUsers(User user);	
-	public void initInvitations(User user);
-	public void initPostings(User user);
-	public void initFriends(User user);
+	//New User init
+	/*
+	public void initUserToUsers(UserPerson user);	
+	public void initInvitations(UserPerson user);
+	public void initPostings(UserPerson user);
+	public void initFriends(UserPerson user);*/
 	
 	// getter
 
-	public User getUserByUsername(String username);	
-	public Vector<Invitation> getUsersInvitations(User user);		
-	public Vector<Posting> getPostingsWall(User user);
-	public Vector<User> getFriends(User user);	
+	public UserPerson getUserByUsername(String username);	
+	public List<Invitation> getUsersInvitations(UserPerson user);		
+	public List<Posting> getPostingsWall(UserPerson user);
+	public List<UserPerson> getFriends(UserPerson user);	
 	
 	// adder
 	
-	public void addUser(User user);
-	public void addInvitation(User user, Invitation invitation);
-	public void addPosting(User user, Posting posting);
-	public void addFriend(User liked, User liker);
+	public void addInvitation(UserPerson user, Invitation invitation);
+	public void addPosting(UserPerson user, Posting posting);
+	public void addFriend(UserPerson liked, UserPerson liker);
 
 	//remover
 	
-	public void removeInvitation(User user, Invitation invitation);
-	public void removeFriend(User hater, User hated);
+	public void removeInvitation(UserPerson user, Invitation invitation);
+	public void removeFriend(UserPerson hater, UserPerson hated);
 }

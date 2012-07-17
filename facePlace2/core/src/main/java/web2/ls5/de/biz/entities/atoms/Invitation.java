@@ -1,50 +1,53 @@
 package web2.ls5.de.biz.entities.atoms;
 
+import java.io.Serializable;
 import javax.inject.Named;
-
-import web2.ls5.de.biz.entities.lists.InvitationsList;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Named
-public class Invitation {
-	InvitationsList parent;
-	User inviter;
-	User invitee;
-	
-	public Invitation() {
-		// TODO Auto-generated constructor stub
-	}
+@Entity
+public class Invitation implements Serializable {
 
-	public User getInviter() {
-		return inviter;
-	}
+  private long id;
+  UserPerson inviter;
+  UserPerson invitee;
 
-	public void setInviter(User inviter) {
-		this.inviter = inviter;
-	}
+  public Invitation() {
+    // TODO Auto-generated constructor stub
+  }
 
-	public User getInvitee() {
-		return invitee;
-	}
+  @Id
+  @GeneratedValue
+  public long getId() {
+    return id;
+  }
 
-	public void setInvitee(User invitee) {
-		this.invitee = invitee;
-	}
+  public void setId(long id) {
+    this.id = id;
+  }
 
-	public InvitationsList getParent() {
-		return parent;
-	}
+  public UserPerson getInviter() {
+    return inviter;
+  }
 
-	public void setParent(InvitationsList parent) {
-		this.parent = parent;
-	}
+  public void setInviter(UserPerson inviter) {
+    this.inviter = inviter;
+  }
 
-	public void approve(){
-		inviter.getFriendsList().add(invitee);
-		invitee.getFriendsList().add(inviter);
-		parent.remove(this);
-	}
-	
-	public void reject(){
-		parent.remove(this);
-	}
+  @ManyToOne
+  public UserPerson getInvitee() {
+    return invitee;
+  }
+
+  public void setInvitee(UserPerson invitee) {
+    this.invitee = invitee;
+  }
+
+  public void approve() {
+    inviter.getFriendsList().add(invitee);
+    invitee.getFriendsList().add(inviter);
+  }
 }

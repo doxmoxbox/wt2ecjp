@@ -81,7 +81,7 @@ public class UserManager {
       }
     }
 
-    if (storedPasswordHash == null || !hashedPassword.equals(storedPasswordHash) || pers == null) {
+    if (storedPasswordHash == null || !hashedPassword.equals(storedPasswordHash)) {
       pers = null;
     }
     return pers;

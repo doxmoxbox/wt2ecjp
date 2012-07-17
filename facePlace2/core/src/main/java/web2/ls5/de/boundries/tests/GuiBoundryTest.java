@@ -5,7 +5,7 @@ import javax.inject.Named;
 
 import web2.ls5.de.biz.entities.atoms.Invitation;
 import web2.ls5.de.biz.entities.atoms.Posting;
-import web2.ls5.de.biz.entities.atoms.User;
+import web2.ls5.de.biz.entities.atoms.UserPerson;
 import web2.ls5.de.boundries.impls.GuiBoundryImpl;
 
 @Named
@@ -29,7 +29,7 @@ public class GuiBoundryTest {
 		String pre1 = "1. user\n";
 		
 		String lab1 = "this.register(\"a\", \"b\",\"c\")\n";
-		User u1     = gbi.register("a", "b", "c");
+		UserPerson u1     = gbi.register("a", "b", "c");
 		
 		String ua1;
 		if(u1 == null)
@@ -45,7 +45,7 @@ public class GuiBoundryTest {
 		String pre2 = "2. user - no username conflict\n";
 		
 		String lab2 = "this.register(\"d\", \"e\",\"f\")\n";
-		User u2     = gbi.register("d", "e", "f");
+		UserPerson u2     = gbi.register("d", "e", "f");
 		
 		String ua2;
 		if(u2 == null)
@@ -61,7 +61,7 @@ public class GuiBoundryTest {
 		String pre3 = "3. user - username conflict with 1. user";
 		
 		String lab3 = "this.register(\"a\", \"g\",\"h\")\n";
-		User u3     = gbi.register("a", "g", "h");
+		UserPerson u3     = gbi.register("a", "g", "h");
 		
 		String ua3;
 		if(u3 == null)
