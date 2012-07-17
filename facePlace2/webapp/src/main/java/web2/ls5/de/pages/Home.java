@@ -3,9 +3,12 @@ package web2.ls5.de.pages;
 import java.util.Set;
 
 import org.apache.tapestry5.alerts.AlertManager;
+import org.apache.tapestry5.alerts.Duration;
+import org.apache.tapestry5.alerts.Severity;
 import org.apache.tapestry5.annotations.*;
 import org.apache.tapestry5.ioc.annotations.*;
 import web2.ls5.de.backend.ApplicationBackend;
+import web2.ls5.de.biz.entities.atoms.Invitation;
 import web2.ls5.de.entities.DBPerson;
 import web2.ls5.de.entities.DBPost;
 
@@ -52,9 +55,20 @@ public class Home
 	
 	void onActionFromCreateTestEntries()
     {
-        backend.createTestEntries();
+        backend.createTestEntries(loggedInPerson);
+        
         alertManager.info("Erstellung der Testeintraege abgeschlossen");
     }
+	
+	public void onActionFromGetInvitations()
+	{
+		Set<Invitation> invs = backend.getInvitations(loggedInPerson);
+		for(Invitation inv : invs)
+		{
+			alertManager.alert(Duration.UNTIL_DISMISSED, Severity.WARN, inv.getInviter()+" ein Freund?");
+		}
+		
+	}
 	
 	Object onActivate()
 	{

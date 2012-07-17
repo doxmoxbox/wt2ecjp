@@ -218,10 +218,18 @@ div.page {
 	float: right; 
 }
 
+.post .entry .home .top .msgs .t-alert-container DIV.t-warn
+{
+	margin-right:4px;
+	float: right;
+}
+
 .post .entry .home .top .msgs .t-alert-container DIV.t-dismiss
 {
 	float:right;
 }
+
+
 
 .post .entry .home .top .msgs .t-alert-container DIV.t-message-container
 {
