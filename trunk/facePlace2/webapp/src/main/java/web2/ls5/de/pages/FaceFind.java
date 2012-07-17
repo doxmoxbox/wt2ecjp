@@ -35,14 +35,17 @@ public class FaceFind {
   private String chosenPerson;
 
   void onValidateFromSearchForm() {
-    Set<DBPerson> result = backend.findPersons(txt);
-    if (!result.isEmpty()) {
-      for (DBPerson p : result) {
-        if(!loggedInPerson.getName().equals(p.getName())) {
-          searchResult.add(p.getName());
-        }        
+    if (txt != null) {
+      Set<DBPerson> result = backend.findPersons(txt);
+      if (!result.isEmpty()) {
+        for (DBPerson p : result) {
+          if (!loggedInPerson.getName().equals(p.getName())) {
+            searchResult.add(p.getName());
+          }
+        }
       }
     }
+
   }
 
   Object onActivate() {
@@ -54,9 +57,8 @@ public class FaceFind {
 
   void onValidateFromResultForm() {
     if (chosenPerson != null) {
-      chosenPerson = chosenPerson.replace("[","");
-      chosenPerson = chosenPerson.replace("]","");
-      Logger.getLogger("dsda").info(chosenPerson);
+      chosenPerson = chosenPerson.replace("[", "");
+      chosenPerson = chosenPerson.replace("]", "");
       backend.createInvitation(loggedInPerson, backend.findDBPersonByName(chosenPerson));
       chosenPerson = null;
       searchResult.clear();
