@@ -53,7 +53,7 @@ public interface ApplicationBackend {
 
   public Set<DBPerson> findPersons(String prefix);
 
-  public void createInvitation(DBPerson src, DBPerson invitedPerson);
+  public Invitation createInvitation(DBPerson src, DBPerson invitedPerson);
 
   public Set<Invitation> getInvitations(DBPerson pers);
 
