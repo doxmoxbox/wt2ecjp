@@ -55,6 +55,12 @@ public class Home
         alertManager.info("Erstellung der Testeintraege abgeschlossen");
     }
 	
+	Object onActivate()
+	{
+		if (loggedInPerson == null)return "index";
+		return null;
+	}
+	
 	
 	
 }

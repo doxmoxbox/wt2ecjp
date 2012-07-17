@@ -193,6 +193,17 @@ div.page {
 	border: 1px #999999 dashed;
 }
 
+.post .entry .home .top .user .t-beandisplay
+{
+	border: 1px #FFFFFF dashed;	
+	background-color: transparent;
+}
+
+.post .entry .home .top .user .t-beandisplay dt.name
+{
+	background-color: red;
+}
+
 .post .entry .home .top .msgs
 {
 	float: right; 
