@@ -56,7 +56,7 @@ public class Home
 	
 	void onActionFromCreateTestEntries()
     {
-        backend.createTestEntries(loggedInPerson);
+        backend.createTestEntries();
         
         alertManager.info("Erstellung der Testeintraege abgeschlossen");
     }
