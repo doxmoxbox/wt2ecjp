@@ -105,14 +105,14 @@ public class ApplicationBackendImpl implements ApplicationBackend {
   public void acceptInvitation(Invitation i) {
     WeAreFriends war = new WeAreFriends(i.getInviter(), i.getInvitee());
     em.persist(war);
-    //em.remove(em.find(Invitation.class, i.getId()));
+   // em.remove(em.find(Invitation.class, i.getId()));
   }
 
   /**
    * Use this!
    */
   public void declineInvitation(Invitation i) {
-    em.remove(em.find(Invitation.class, i));
+    em.remove(em.find(Invitation.class, i.getId()));
   }
 
   /**
