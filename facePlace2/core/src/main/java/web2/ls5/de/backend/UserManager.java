@@ -57,6 +57,12 @@ public class UserManager {
     String saltedPassword = hashText + password;
     String hashedPassword = generateHash(saltedPassword);
     DBPerson xperson = new DBPerson(name, hashedPassword, birthdate);
+    Query q = em.createQuery("SELECT p FROM DBPerson p", DBPerson.class);
+    for (DBPerson p : new HashSet<DBPerson>(q.getResultList())) {
+      if(p.getName().equals(name)) {
+        return false;
+      }
+    } 
     em.persist(xperson);
     return true;
   }
