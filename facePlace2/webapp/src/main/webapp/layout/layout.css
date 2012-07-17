@@ -209,7 +209,7 @@ div.page {
 {
 	float: right;
 	width:auto;
-	border: 1px #999999 dashed;
+	/*border: 1px #999999 dashed;*/
 }
 
 .post .entry .home .top .msgs .t-alert-container DIV.t-info
