@@ -1,27 +1,27 @@
 package web2.ls5.de.biz.controller;
 
-import web2.ls5.de.biz.entities.atoms.User;
+import web2.ls5.de.biz.entities.atoms.UserPerson;
 import web2.ls5.de.boundries.DbBoundry;
 import web2.ls5.de.boundries.dummys.DbBoundryDummy;
+import web2.ls5.de.boundries.impls.DbBoundryImpl;
 
 public class UserStatusController {
 
-	DbBoundry dbb = new DbBoundryDummy();
-	
+	DbBoundryImpl dbb = new DbBoundryImpl();
 	
 	public UserStatusController() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public User register (String username, String passwort, String name){		
+	public UserPerson register (String username, String passwort, String name){		
 		if(dbb.getUserByUsername(username) != null){
 			return null;
 		}
-		return new User(username, passwort, name);				
+		return new UserPerson(username, passwort, name);				
 	}
 	
-	public User login(String username, String passwort){
-		User dbUser = dbb.getUserByUsername(username);
+	public UserPerson login(String username, String passwort){
+		UserPerson dbUser = dbb.getUserByUsername(username);
 		if(dbUser.getPasswort().equals(passwort)){
 			return dbUser;
 		}				

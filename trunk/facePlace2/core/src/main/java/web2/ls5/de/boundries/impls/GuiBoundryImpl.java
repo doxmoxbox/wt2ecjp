@@ -8,30 +8,36 @@ import web2.ls5.de.biz.controller.SearchEngineController;
 import web2.ls5.de.biz.controller.UserStatusController;
 import web2.ls5.de.biz.entities.atoms.Invitation;
 import web2.ls5.de.biz.entities.atoms.Posting;
-import web2.ls5.de.biz.entities.atoms.User;
-import web2.ls5.de.boundries.tests.GuiBoundryTest;
+import web2.ls5.de.biz.entities.atoms.UserPerson;
+
 
 @Named
 public class GuiBoundryImpl {
 
+//SessionsBoundary sb = new SessionsBoundaryDummy();
 	UserStatusController us = new UserStatusController();
 	SearchEngineController se = new SearchEngineController();
-	GuiBoundryTest gbt = new GuiBoundryTest();
 	
 	public GuiBoundryImpl() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public String testAll(){
-		return gbt.testAll();
+	/*public Session openNewBrowserSession(){
+		return sb.openNewBrowserSession();
+	}*/
+	
+
+
+	/*public boolean login(Session session, String username, String passwort){
+		return us.login(session, username, passwort);
 	}
 	
-	public User register(String username, String passwort, String name){
-		return us.register(username, passwort, name);
+	public boolean logout(Session session, User user){
+		return us.logout(session, user);
 	}
-
-	public User login(String username, String passwort){
-		return us.login(username, passwort);
+	
+	public boolean closeBrowserSession(Session session){
+		return sb.closeBrowserSession(session);
 	}
 	
 	public Vector<User> searchNames(String prefix){
@@ -60,5 +66,9 @@ public class GuiBoundryImpl {
 	
 	public Vector<Posting> getPostsWall(User user){
 		return user.getPostingsList().getPostingsList();
+	}*/
+  
+ public UserPerson register(String username, String passwort, String name){
+		return us.register(username, passwort, name);
 	}
 }
