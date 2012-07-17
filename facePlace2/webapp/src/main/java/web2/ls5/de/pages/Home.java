@@ -7,6 +7,7 @@ import org.apache.tapestry5.alerts.AlertManager;
 import org.apache.tapestry5.alerts.Duration;
 import org.apache.tapestry5.alerts.Severity;
 import org.apache.tapestry5.annotations.*;
+import org.apache.tapestry5.corelib.components.Grid;
 import org.apache.tapestry5.ioc.annotations.*;
 import web2.ls5.de.backend.ApplicationBackend;
 import web2.ls5.de.biz.entities.atoms.Invitation;
@@ -31,6 +32,9 @@ public class Home
 	
 	@Property
 	private DBPerson person;
+	
+	@InjectComponent("postGrid")
+	private Grid postGrid;
 	
 	//@Component
 	//private PostingComponent postsComponent;
@@ -76,6 +80,12 @@ public class Home
 		return null;
 	}
 	
-	
+	void setupRender() 
+	{
+			if (postGrid.getSortModel().getSortConstraints().isEmpty()) 
+			{
+				postGrid.getSortModel().updateSort("creationDate");
+		}
+	}
 	
 }
