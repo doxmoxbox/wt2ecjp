@@ -59,6 +59,37 @@ public class TestEntriesFactory
 	    backend.createPosting(person3, "Morgen!"); 
 	    backend.createPosting(person4, "Traurig aber wahr ...");    
 	    backend.createPosting(person5, "Kein Bock mehr.");
+	    
+	    /* Diff the creationdate of postings*/
+	    int i=23;
+	    for( DBPost post : backend.getAllPostingsFromDBPerson(person1))
+	    {
+	    	post.getCreationDate().setDate(post.getCreationDate().getDate()-i);
+	    	i--;
+	    }
+	    for( DBPost post : backend.getAllPostingsFromDBPerson(person2))
+	    {
+	    	post.getCreationDate().setDate(post.getCreationDate().getDate()-i);
+	    	i--;
+	    }
+	    
+	    for( DBPost post : backend.getAllPostingsFromDBPerson(person3))
+	    {
+	    	post.getCreationDate().setDate(post.getCreationDate().getDate()-i);
+	    	i--;
+	    }
+	    
+	    for( DBPost post : backend.getAllPostingsFromDBPerson(person4))
+	    {
+	    	post.getCreationDate().setDate(post.getCreationDate().getDate()-i);
+	    	i--;
+	    }
+	    
+	    for( DBPost post : backend.getAllPostingsFromDBPerson(person5))
+	    {
+	    	post.getCreationDate().setDate(post.getCreationDate().getDate()-i);
+	    	i--;
+	    }
 
 	    /*Friendships*/
 	    

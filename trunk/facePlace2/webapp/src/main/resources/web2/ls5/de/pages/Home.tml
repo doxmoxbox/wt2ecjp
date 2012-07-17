@@ -28,7 +28,7 @@
 					<t:postingcomponent/>
 				</div>
 				<div style="float:bottom;">
-					<t:grid source="posts" row="post" class="grid" rowsPerPage="10" exclude="id" reorder="creator, creationdate, msg"></t:grid>
+					<t:grid t:id="postGrid" source="posts" row="post" class="grid" rowsPerPage="10" exclude="id" reorder="creator, creationdate, msg"></t:grid>
 				</div>
 			</div>
 			<div class="friends" align="right">
