@@ -34,9 +34,6 @@
 			</div>
 			<div class="friends" align="right">
 				<h2>Freunde</h2>
-				<div>
-					<t:searchfriendscomp/>
-				</div>
 				<div style="float:bottom;">
 					<t:grid source="friends" row="person" class="grid" rowsPerPage="10" exclude="id, password" ></t:grid>
 				</div>
