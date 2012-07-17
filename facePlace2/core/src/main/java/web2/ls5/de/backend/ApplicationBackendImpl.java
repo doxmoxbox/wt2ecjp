@@ -27,7 +27,7 @@ public class ApplicationBackendImpl implements ApplicationBackend {
   private UserManager um;
   UserStatusController us = new UserStatusController();
   SearchEngineController se = new SearchEngineController();
-
+  
   /*
    * Working methods!
    */
@@ -136,16 +136,12 @@ public class ApplicationBackendImpl implements ApplicationBackend {
    */
   public void removeFriend(DBPerson a, DBPerson b) {
     Query q = em.createQuery("SELECT f FROM WeAreFriends f", WeAreFriends.class);
-    Logger.getLogger("ihih").info(a.getName() +", "+b.getName()+" hih1");
     for (WeAreFriends war : new HashSet<WeAreFriends>(q.getResultList())) {
-       Logger.getLogger("ihih").info(war.getFriendOne() +", "+war.getFriendTwo()+" hiho2");
       if (war.getFriendOne().equals(a.getName()) && war.getFriendTwo().equals(b.getName())) {
         if(em.find(WeAreFriends.class, war.getId()) != null ) {
-          Logger.getLogger("ihih").info("found object1");
         }
         em.remove(em.find(WeAreFriends.class, war.getId()));
       } else if (war.getFriendOne().equals(b.getName()) && war.getFriendTwo().equals(a.getName())) {
-        Logger.getLogger("ihih").info("found object2");
         em.remove(em.find(WeAreFriends.class, war.getId()));
       }
     }
@@ -178,7 +174,7 @@ public class ApplicationBackendImpl implements ApplicationBackend {
     Query q = em.createQuery("SELECT p FROM DBPerson p", DBPerson.class);
     Set<DBPerson> persons = new HashSet<DBPerson>();
     for (DBPerson p : new HashSet<DBPerson>(q.getResultList())) {
-      if (p.getName().startsWith(prefix)) {
+      if (p.getName().toLowerCase().startsWith(prefix.toLowerCase())) {  
         persons.add(p);
       }
     }
