@@ -76,7 +76,7 @@ public class ApplicationBackendImpl implements ApplicationBackend {
    * Use this!
    */
   public void createInvitation(DBPerson src, DBPerson invitedPerson) {
-    if(src == null || invitedPerson == null) {
+    if (src == null || invitedPerson == null) {
       return;
     }
     Invitation inv = new Invitation(src.getName(), invitedPerson.getName());
@@ -103,7 +103,7 @@ public class ApplicationBackendImpl implements ApplicationBackend {
   public void acceptInvitation(Invitation i) {
     WeAreFriends war = new WeAreFriends(i.getInviter(), i.getInvitee());
     em.persist(war);
-    em.remove(em.find(Invitation.class, i));
+    //em.remove(em.find(Invitation.class, i.getId()));
   }
 
   /**
@@ -128,20 +128,26 @@ public class ApplicationBackendImpl implements ApplicationBackend {
     }
     return friends;
   }
-  
+
   /**
    * Use this!
    */
   public void removeFriend(DBPerson a, DBPerson b) {
     Query q = em.createQuery("SELECT f FROM WeAreFriends f", WeAreFriends.class);
     for (WeAreFriends war : new HashSet<WeAreFriends>(q.getResultList())) {
-      if(war.getFriendOne().equals(a.getName()) && war.getFriendTwo().equals(b.getName())) {
-        em.remove(em.find(WeAreFriends.class, war));
-      }
-      else if(war.getFriendOne().equals(b.getName()) && war.getFriendTwo().equals(a.getName())) {
-        em.remove(em.find(WeAreFriends.class, war));
+      if (war.getFriendOne().equals(a.getName()) && war.getFriendTwo().equals(b.getName())) {
+        em.remove(em.find(WeAreFriends.class, war.getId()));
+      } else if (war.getFriendOne().equals(b.getName()) && war.getFriendTwo().equals(a.getName())) {
+        em.remove(em.find(WeAreFriends.class, war.getId()));
       }
     }
+  }
+
+  /**
+   * Use this!
+   */
+  public Invitation getInvitationById(long id) {
+    return em.find(Invitation.class, id);
   }
 
   /**
@@ -319,7 +325,7 @@ public class ApplicationBackendImpl implements ApplicationBackend {
       newPost.setMsg(generateRandomString());
       newPost.setCreator(newPerson.getName());
       em.persist(newPost);
-      
+
       createInvitation(newPerson, person);
     }
   }
