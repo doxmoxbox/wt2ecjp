@@ -1,5 +1,6 @@
 package web2.ls5.de.pages;
 
+import java.text.SimpleDateFormat;
 import java.util.Collections;
 import java.util.List;
 import java.util.Set;
@@ -58,17 +59,12 @@ public class Home
 		return backend.getFriends(loggedInPerson);
 	}
 	
-	public void onActionFromTestMsg()
-    {
-    	alertManager.info("Muhaha Test");
-    }
-	
-	public void onActionFromGetInvitations()
+	public void lookforInvitations()
 	{
 		Set<Invitation> invs = backend.getInvitations(loggedInPerson);
 		for(Invitation inv : invs)
 		{
-			alertManager.alert(Duration.UNTIL_DISMISSED, Severity.INFO, "faceFind: Neuer Freund!");
+			alertManager.alert(Duration.SINGLE, Severity.INFO, "faceFind: Neuer Freund!");
 		}
 		
 	}
@@ -82,17 +78,21 @@ public class Home
 	Object onActivate()
 	{
 		if (loggedInPerson == null)return "index";
+		lookforInvitations();
 		return null;
 	}
 	
-	/*void setupRender() 
+	public String getFormattedPostDate()
 	{
-			if (postGrid.getSortModel().getSortConstraints().isEmpty()) 
-			{
-				postGrid.getSortModel().clear();
-				postGrid.getSortModel().updateSort("creationDate");
-				
-		}
-	}*/
+		 SimpleDateFormat formatter = new SimpleDateFormat("d.M.y - H:m:s");//"d.m.y - H:m:s"
+		 return formatter.format(post.getCreationDate());
+	  
+	}
+	
+	public String getLoggedInPersonBirthdate()
+	{
+		SimpleDateFormat formatter = new SimpleDateFormat("d.M.y");//"d.m.y - H:m:s"
+		 return formatter.format(loggedInPerson.getBirthdate());
+	}
 	
 }
