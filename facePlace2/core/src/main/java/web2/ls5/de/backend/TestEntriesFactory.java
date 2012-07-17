@@ -66,30 +66,36 @@ public class TestEntriesFactory
 	    {
 	    	post.getCreationDate().setDate(post.getCreationDate().getDate()-i);
 	    	i--;
-	    }
-	    for( DBPost post : backend.getAllPostingsFromDBPerson(person2))
-	    {
-	    	post.getCreationDate().setDate(post.getCreationDate().getDate()-i);
-	    	i--;
+	    	for( DBPost post1 : backend.getAllPostingsFromDBPerson(person2))
+		    {
+		    	post1.getCreationDate().setDate(post.getCreationDate().getDate()-i);
+		    	i--;
+		    	for( DBPost post2 : backend.getAllPostingsFromDBPerson(person3))
+			    {
+			    	post2.getCreationDate().setDate(post.getCreationDate().getDate()-i);
+			    	i--;
+			    	for( DBPost post3 : backend.getAllPostingsFromDBPerson(person4))
+				    {
+				    	post3.getCreationDate().setDate(post.getCreationDate().getDate()-i);
+				    	i--;
+				    	for( DBPost post4 : backend.getAllPostingsFromDBPerson(person5))
+					    {
+					    	post4.getCreationDate().setDate(post.getCreationDate().getDate()-i);
+					    	i--;
+					    }
+				    }
+			    }
+		    }
+	    	
+	    	
 	    }
 	    
-	    for( DBPost post : backend.getAllPostingsFromDBPerson(person3))
-	    {
-	    	post.getCreationDate().setDate(post.getCreationDate().getDate()-i);
-	    	i--;
-	    }
 	    
-	    for( DBPost post : backend.getAllPostingsFromDBPerson(person4))
-	    {
-	    	post.getCreationDate().setDate(post.getCreationDate().getDate()-i);
-	    	i--;
-	    }
 	    
-	    for( DBPost post : backend.getAllPostingsFromDBPerson(person5))
-	    {
-	    	post.getCreationDate().setDate(post.getCreationDate().getDate()-i);
-	    	i--;
-	    }
+	    
+	    
+	    
+	    
 
 	    /*Friendships*/
 	    
