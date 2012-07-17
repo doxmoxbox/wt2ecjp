@@ -1,13 +1,11 @@
 package web2.ls5.de.backend;
 
 import java.util.*;
-import java.util.logging.Logger;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
-import org.hibernate.Hibernate;
 import web2.ls5.de.biz.controller.SearchEngineController;
 import web2.ls5.de.biz.controller.UserStatusController;
 import web2.ls5.de.biz.entities.atoms.Invitation;

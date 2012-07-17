@@ -50,7 +50,7 @@ public class UserManager {
           String password,
           String repeatPassword,
           Date birthdate) {
-    if (!password.equals(repeatPassword)) {
+    if (!password.equals(repeatPassword) || name.contains("[") || name.contains("]")) {
       return false;
     }
 
