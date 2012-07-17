@@ -1,6 +1,7 @@
 package web2.ls5.de.backend;
 
 import java.util.*;
+import java.util.logging.Logger;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -75,12 +76,13 @@ public class ApplicationBackendImpl implements ApplicationBackend {
   /**
    * Use this!
    */
-  public void createInvitation(DBPerson src, DBPerson invitedPerson) {
+  public Invitation createInvitation(DBPerson src, DBPerson invitedPerson) {
     if (src == null || invitedPerson == null) {
-      return;
+      return null;
     }
     Invitation inv = new Invitation(src.getName(), invitedPerson.getName());
     em.persist(inv);
+    return inv;
   }
 
   /**
@@ -136,6 +138,9 @@ public class ApplicationBackendImpl implements ApplicationBackend {
     Query q = em.createQuery("SELECT f FROM WeAreFriends f", WeAreFriends.class);
     for (WeAreFriends war : new HashSet<WeAreFriends>(q.getResultList())) {
       if (war.getFriendOne().equals(a.getName()) && war.getFriendTwo().equals(b.getName())) {
+        if(em.find(WeAreFriends.class, war.getId()) != null ) {
+          Logger.getLogger("ihih").info("found object");
+        }
         em.remove(em.find(WeAreFriends.class, war.getId()));
       } else if (war.getFriendOne().equals(b.getName()) && war.getFriendTwo().equals(a.getName())) {
         em.remove(em.find(WeAreFriends.class, war.getId()));
