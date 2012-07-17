@@ -7,8 +7,10 @@
 	<t:if test="loggedInPerson">
 		<div class="top">
 			<div class="user">
-				<!--<t:beandisplay exclude="id, password" object="loggedInPerson"/>-->
-				<h2>${loggedInPerson.name}&nbsp; ${loggedInPersonBirthdate}</h2>
+				<fieldset>
+					<legend>Profil</legend>
+					<h3><strong>Nick:</strong>&nbsp;${loggedInPerson.name}&nbsp;&nbsp;<strong>Geb:</strong>&nbsp;${loggedInPersonBirthdate}</h3>
+				</fieldset>
 			</div>
 			<div style="float:left;">
 
