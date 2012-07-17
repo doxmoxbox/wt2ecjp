@@ -127,8 +127,26 @@ public class ApplicationBackendImpl implements ApplicationBackend {
     }
     return friends;
   }
+  
+  /**
+   * Use this!
+   */
+  public void removeFriend(DBPerson a, DBPerson b) {
+    Query q = em.createQuery("SELECT f FROM WeAreFriends f", WeAreFriends.class);
+    for (WeAreFriends war : new HashSet<WeAreFriends>(q.getResultList())) {
+      if(war.getFriendOne().equals(a.getName()) && war.getFriendTwo().equals(b.getName())) {
+        em.remove(war);
+      }
+      else if(war.getFriendOne().equals(b.getName()) && war.getFriendTwo().equals(a.getName())) {
+        em.remove(war);
+      }
+    }
+  }
 
-  private DBPerson findDBPersonByName(String name) {
+  /**
+   * Use this!
+   */
+  public DBPerson findDBPersonByName(String name) {
     Query q = em.createQuery("SELECT p FROM DBPerson p", DBPerson.class);
     for (DBPerson p : new HashSet<DBPerson>(q.getResultList())) {
       if (name.equals(p.getName())) {
@@ -137,16 +155,19 @@ public class ApplicationBackendImpl implements ApplicationBackend {
     }
     return null;
   }
-  
+
+  /**
+   * Use this!
+   */
   public Set<DBPerson> findPersons(String prefix) {
-     Query q = em.createQuery("SELECT p FROM DBPerson p", DBPerson.class);
-     Set<DBPerson> persons = new HashSet<DBPerson>();
-     for(DBPerson p : new HashSet<DBPerson>(q.getResultList())) {
-       if(p.getName().startsWith(prefix)) {
-         persons.add(p);
-       }
-     }
-     return persons;
+    Query q = em.createQuery("SELECT p FROM DBPerson p", DBPerson.class);
+    Set<DBPerson> persons = new HashSet<DBPerson>();
+    for (DBPerson p : new HashSet<DBPerson>(q.getResultList())) {
+      if (p.getName().startsWith(prefix)) {
+        persons.add(p);
+      }
+    }
+    return persons;
   }
 
 
@@ -168,7 +189,7 @@ public class ApplicationBackendImpl implements ApplicationBackend {
   }
 
   public void invite(UserPerson inviter, UserPerson invitee) {
-  //  inviter.invite(invitee);
+    //  inviter.invite(invitee);
   }
 
   public List<Invitation> chooseInivitation(UserPerson invitee) {
