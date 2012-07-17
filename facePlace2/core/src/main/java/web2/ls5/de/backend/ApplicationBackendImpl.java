@@ -320,25 +320,11 @@ public class ApplicationBackendImpl implements ApplicationBackend {
     }
   }
 
-  public void createTestEntries(DBPerson person) {
-    for (int i = 0; i < 15; i++) {
-      DBPerson newPerson = createNewPerson();
-      newPerson.setName("Mr.X");
-      newPerson.setBirthdate(new Date((int) Math.random() * 10, (int) Math.random() * 10, (int) Math.random() * 10));
-      newPerson.setPassword(getUserManager().getHashedPassword("123"));
-
-      DBPost newPost = new DBPost();
-      Date bla = new Date((int) Math.random() * 10, (int) Math.random() * 10, (int) Math.random() * 10);
-      newPost.setCreationDate(bla);
-      newPost.setMsg(generateRandomString());
-      newPost.setCreator(newPerson.getName());
-      em.persist(newPost);
-
-      createInvitation(newPerson, person);
-    }
+  public void createTestEntries() 
+  {
+	  new TestEntriesFactory(this);
+    
   }
 
-  private String generateRandomString() {
-    return java.util.UUID.randomUUID().toString();
-  }
+  
 }
