@@ -1,25 +1,20 @@
 package web2.ls5.de.components;
 
 import org.apache.tapestry5.alerts.AlertManager;
-import org.apache.tapestry5.annotations.*;
+import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Form;
 import org.apache.tapestry5.corelib.components.TextArea;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
 import web2.ls5.de.backend.ApplicationBackend;
 
-/**
- * 
- * 
- *
- */
-public class PostingComponent 
+public class SearchFriendsComp
 {
 	@Inject 
 	private ApplicationBackend backend;
 	
 	@Property
-	private Form postForm;
+	private Form searchForm;
 	
 	@Property
 	private TextArea textArea;
@@ -30,9 +25,9 @@ public class PostingComponent
 	@Inject
 	AlertManager alertManager;
 	
-	void onValidateFromPostForm()
+	void onValidateFromSearchForm()
 	{
-		alertManager.info("Post abgeschickt!");
+		alertManager.info("Suche!");
 	    //backend.createNewPost();
 	}
 }

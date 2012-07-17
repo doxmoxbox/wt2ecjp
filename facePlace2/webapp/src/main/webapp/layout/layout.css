@@ -184,7 +184,7 @@ div.page {
 .post .entry .home .top
 {
 	float: top;
-	border: 1px #999999 dashed;
+	/*border: 1px #999999 dashed;*/
 }
 
 .post .entry .home .top .user
@@ -202,20 +202,72 @@ div.page {
 .post .entry .home .bottom
 {
 	clear:left;
-	border: 1px #999999 dashed;
+	height: auto;
+	/*border: 1px #999999 dashed;*/
 }
 
 .post .entry .home .bottom .posts
 {
 	float: left;
-	width: auto;
-	border: 1px #999999 dashed;
+	width: 49%;
+	heigth: 100%;
+	margin-right: 2px;
+	/*border-right: 1px #999999 dashed;*/
 }
+
+.post .entry .home .bottom .posts .grid
+{
+	width: 100%;
+	/*border: 1px #999999 dashed;*/
+}
+
+.post .entry .home .bottom .posts .grid tr	
+{ 
+	height: 30px;
+}
+
+.post .entry .home .bottom .posts .grid tr:hover	
+{ 
+	background-color: #eeeeee; 
+}
+
+.post .entry .home .bottom .posts .grid tr.odd	
+{ 
+	background-color: #f8f8f8; 
+}
+
+
+.post .entry .home .bottom .friends .grid
+{
+	width: 100%;
+	/*border: 1px #999999 dashed;*/
+}
+
+.post .entry .home .bottom .friends .grid tr	
+{ 
+	height: 30px; 
+}
+
+.post .entry .home .bottom .friends .grid tr:hover	
+{ 
+	background-color: #eeeeee; 
+}
+
+.post .entry .home .bottom .friends .grid tr.odd	
+{ 
+	background-color: #f8f8f8; 
+}
+
+
+
 
 .post .entry .home .bottom .friends
 {
 	float: right;
-	border: 1px #999999 dashed;
+	width: 49%;
+	heigth: 100%;
+	margin-left: 2px;
+	/*border-left: 1px #999999 dashed;*/
 }
 
 
