@@ -58,13 +58,13 @@ public class ApplicationBackendImpl implements ApplicationBackend {
     for (WeAreFriends war : new HashSet<WeAreFriends>(friends.getResultList())) {
       if (pers.getName().equals(war.getFriendOne())) {
         for (DBPost p : new HashSet<DBPost>(q.getResultList())) {
-          if (war.getFriendOne().equals(p.getCreator())) {
+          if (war.getFriendTwo().equals(p.getCreator())) {
             list.add(p);
           }
         }
       } else if (pers.getName().equals(war.getFriendTwo())) {
         for (DBPost p : new HashSet<DBPost>(q.getResultList())) {
-          if (war.getFriendTwo().equals(p.getCreator())) {
+          if (war.getFriendOne().equals(p.getCreator())) {
             list.add(p);
           }
         }
@@ -136,14 +136,16 @@ public class ApplicationBackendImpl implements ApplicationBackend {
    */
   public void removeFriend(DBPerson a, DBPerson b) {
     Query q = em.createQuery("SELECT f FROM WeAreFriends f", WeAreFriends.class);
+    Logger.getLogger("ihih").info(a.getName() +", "+b.getName()+" hih1");
     for (WeAreFriends war : new HashSet<WeAreFriends>(q.getResultList())) {
-       Logger.getLogger("ihih").info(war.getFriendOne() +", "+war.getFriendTwo()+" hiho");
+       Logger.getLogger("ihih").info(war.getFriendOne() +", "+war.getFriendTwo()+" hiho2");
       if (war.getFriendOne().equals(a.getName()) && war.getFriendTwo().equals(b.getName())) {
         if(em.find(WeAreFriends.class, war.getId()) != null ) {
-          Logger.getLogger("ihih").info("found object");
+          Logger.getLogger("ihih").info("found object1");
         }
         em.remove(em.find(WeAreFriends.class, war.getId()));
       } else if (war.getFriendOne().equals(b.getName()) && war.getFriendTwo().equals(a.getName())) {
+        Logger.getLogger("ihih").info("found object2");
         em.remove(em.find(WeAreFriends.class, war.getId()));
       }
     }
