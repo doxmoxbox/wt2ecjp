@@ -7,7 +7,8 @@
 	<t:if test="loggedInPerson">
 		<div class="top">
 			<div class="user">
-				<t:beandisplay exclude="id, password" object="loggedInPerson"/>
+				<!--<t:beandisplay exclude="id, password" object="loggedInPerson"/>-->
+				<h2>${loggedInPerson.name}&nbsp; ${loggedInPerson.birthdate}</h2>
 			</div>
 			<div style="float:left;">
 				<t:actionlink t:id="testmsg">TestMsg</t:actionlink><br/>

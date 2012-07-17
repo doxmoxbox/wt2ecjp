@@ -62,7 +62,7 @@ public class Layout
 
     public String[] getPageNames()
     {
-        return new String[]{"Index", "Home", "About", "Contact", "Test"};
+        return new String[]{"Index", "Home", "Test"};
     }
     
     public void showSidebar(boolean b)
