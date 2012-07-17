@@ -62,7 +62,7 @@ public class Layout
 
     public String[] getPageNames()
     {
-        return new String[]{"Home"};
+        return new String[]{"Home", "FaceFind"};
     }
     
     public void showSidebar(boolean b)
