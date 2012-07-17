@@ -33,8 +33,8 @@ public class Home
 	@Property
 	private DBPerson person;
 	
-	@InjectComponent("postGrid")
-	private Grid postGrid;
+	/*@InjectComponent("postGrid")
+	private Grid postGrid;*/
 	
 	//@Component
 	//private PostingComponent postsComponent;
@@ -80,7 +80,7 @@ public class Home
 		return null;
 	}
 	
-	void setupRender() 
+	/*void setupRender() 
 	{
 			if (postGrid.getSortModel().getSortConstraints().isEmpty()) 
 			{
@@ -88,6 +88,6 @@ public class Home
 				postGrid.getSortModel().updateSort("creationDate");
 				
 		}
-	}
+	}*/
 	
 }

@@ -28,7 +28,15 @@
 					<t:postingcomponent/>
 				</div>
 				<div style="float:bottom;">
-					<t:grid t:id="postGrid" source="posts" row="post" class="grid" rowsPerPage="10" exclude="id" reorder="creator, creationdate, msg"></t:grid>
+					<!--<t:grid t:id="postGrid" source="posts" row="post" class="grid" rowsPerPage="10" exclude="id" reorder="creator, creationdate, msg"></t:grid>-->
+					<t:loop source="posts" value="post">
+						<div class="postRow">
+							<fieldset>
+								<legend>${post.creator} ${post.creationdate}</legend>
+								${post.msg}
+							</fieldset>
+						</div>
+					</t:loop>
 				</div>
 			</div>
 			<div class="friends" align="right">
