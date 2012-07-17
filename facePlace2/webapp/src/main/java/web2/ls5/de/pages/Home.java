@@ -45,7 +45,7 @@ public class Home
 	
 	public Set<DBPerson> getFriends()
 	{
-		return backend.getAllPersons();
+		return backend.getFriends(loggedInPerson);
 	}
 	
 	public void onActionFromTestMsg()
@@ -65,10 +65,16 @@ public class Home
 		Set<Invitation> invs = backend.getInvitations(loggedInPerson);
 		for(Invitation inv : invs)
 		{
-			alertManager.alert(Duration.SINGLE, Severity.INFO, "faceFind: Neuer Freund!");
+			alertManager.alert(Duration.UNTIL_DISMISSED, Severity.INFO, "faceFind: Neuer Freund!");
 		}
 		
 	}
+	
+	void onActionFromDelete(long userId)
+    {
+        backend.removeFriend(loggedInPerson, backend.getPerson(userId));
+        alertManager.alert(Duration.TRANSIENT, Severity.INFO, "faceFind: Freund entfernt!");
+    }  
 	
 	Object onActivate()
 	{

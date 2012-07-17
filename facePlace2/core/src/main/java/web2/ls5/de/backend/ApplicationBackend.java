@@ -49,6 +49,8 @@ public interface ApplicationBackend {
 
   public void removePerson(long id);
 
+  public Set<DBPerson> getFriends(DBPerson pers);
+  
   public Set<DBPerson> findPersons(String prefix);
 
   public void createInvitation(DBPerson src, DBPerson invitedPerson);
