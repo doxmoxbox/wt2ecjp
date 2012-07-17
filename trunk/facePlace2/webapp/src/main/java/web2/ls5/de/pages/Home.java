@@ -25,6 +25,9 @@ public class Home
 	@Property
 	private DBPost post;
 	
+	@Property
+	private DBPerson person;
+	
 	//@Component
 	//private PostingComponent postsComponent;
 	
@@ -36,9 +39,20 @@ public class Home
 		return backend.getAllPosts();
 	}
 	
+	public Set<DBPerson> getFriends()
+	{
+		return backend.getAllPersons();
+	}
+	
 	public void onActionFromTestMsg()
     {
     	alertManager.info("Muhaha Test");
+    }
+	
+	void onActionFromCreateTestEntries()
+    {
+        backend.createTestEntries();
+        alertManager.info("Erstellung der Testeintraege abgeschlossen");
     }
 	
 	

@@ -9,6 +9,10 @@
 			<div class="user">
 				<t:beandisplay exclude="id, password" object="loggedInPerson"/>
 			</div>
+			<div style="float:left;">
+				<t:actionlink t:id="testmsg">TestMsg</t:actionlink><br/>
+				<t:actionlink t:id="createTestEntries">Erstelle Testeintraege</t:actionlink>
+			</div>
 			<div class="msgs">
 				<h2>Benachrichtigungen</h2>
 				<t:alerts/>
@@ -23,13 +27,18 @@
 				<div>
 					<t:postingcomponent/>
 				</div>
-				<t:grid source="posts" row="post" inplace="true">
-
-				</t:grid>
+				<div style="float:bottom;">
+					<t:grid source="posts" row="post" class="grid" rowsPerPage="10" exclude="id" reorder="creator, creationdate, msg"></t:grid>
+				</div>
 			</div>
-			<div class="friends">
+			<div class="friends" align="right">
 				<h2>Freunde</h2>
-				<t:actionlink t:id="testmsg">TestMsg</t:actionlink>
+				<div>
+					<t:searchfriendscomp/>
+				</div>
+				<div style="float:bottom;">
+					<t:grid source="friends" row="person" class="grid" rowsPerPage="10" exclude="id, password" ></t:grid>
+				</div>
 			</div>
 		</div>
 			
