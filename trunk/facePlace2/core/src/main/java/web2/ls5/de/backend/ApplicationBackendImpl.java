@@ -105,7 +105,7 @@ public class ApplicationBackendImpl implements ApplicationBackend {
   public void acceptInvitation(Invitation i) {
     WeAreFriends war = new WeAreFriends(i.getInviter(), i.getInvitee());
     em.persist(war);
-   // em.remove(em.find(Invitation.class, i.getId()));
+    em.remove(em.find(Invitation.class, i.getId()));
   }
 
   /**
@@ -137,6 +137,7 @@ public class ApplicationBackendImpl implements ApplicationBackend {
   public void removeFriend(DBPerson a, DBPerson b) {
     Query q = em.createQuery("SELECT f FROM WeAreFriends f", WeAreFriends.class);
     for (WeAreFriends war : new HashSet<WeAreFriends>(q.getResultList())) {
+       Logger.getLogger("ihih").info(war.getFriendOne() +", "+war.getFriendTwo()+" hiho");
       if (war.getFriendOne().equals(a.getName()) && war.getFriendTwo().equals(b.getName())) {
         if(em.find(WeAreFriends.class, war.getId()) != null ) {
           Logger.getLogger("ihih").info("found object");
