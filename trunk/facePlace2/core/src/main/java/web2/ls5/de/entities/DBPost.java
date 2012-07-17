@@ -31,7 +31,7 @@ public class DBPost implements Serializable, Comparable<DBPost> {
     this.msg = msg;
   }
 
-  @Temporal(value = TemporalType.DATE)
+  @Temporal(value = TemporalType.TIMESTAMP)
   public Date getCreationDate() {
     return creationDate;
   }
