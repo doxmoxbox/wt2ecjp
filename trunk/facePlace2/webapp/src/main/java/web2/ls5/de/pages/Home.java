@@ -84,7 +84,9 @@ public class Home
 	{
 			if (postGrid.getSortModel().getSortConstraints().isEmpty()) 
 			{
+				postGrid.getSortModel().clear();
 				postGrid.getSortModel().updateSort("creationDate");
+				
 		}
 	}
 	
