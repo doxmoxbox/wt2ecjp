@@ -135,10 +135,10 @@ public class ApplicationBackendImpl implements ApplicationBackend {
     Query q = em.createQuery("SELECT f FROM WeAreFriends f", WeAreFriends.class);
     for (WeAreFriends war : new HashSet<WeAreFriends>(q.getResultList())) {
       if(war.getFriendOne().equals(a.getName()) && war.getFriendTwo().equals(b.getName())) {
-        em.remove(war);
+        em.remove(em.find(WeAreFriends.class, war));
       }
       else if(war.getFriendOne().equals(b.getName()) && war.getFriendTwo().equals(a.getName())) {
-        em.remove(war);
+        em.remove(em.find(WeAreFriends.class, war));
       }
     }
   }
