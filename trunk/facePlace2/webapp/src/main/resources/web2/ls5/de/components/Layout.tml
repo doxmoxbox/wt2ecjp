@@ -41,7 +41,7 @@ Description: A Web 2.0 design with fluid width suitable for blogs and small webs
 					</li>
 				</t:if>
 				<li>
-						<t:pagelink page="test">TEST</t:pagelink>
+					<t:actionlink t:id="createtestentries">Test</t:actionlink>
 				</li>
 			</ul>
 		</div>

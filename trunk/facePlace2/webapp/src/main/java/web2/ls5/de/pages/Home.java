@@ -54,13 +54,6 @@ public class Home
     	alertManager.info("Muhaha Test");
     }
 	
-	void onActionFromCreateTestEntries()
-    {
-        backend.createTestEntries();
-        
-        alertManager.info("Erstellung der Testeintraege abgeschlossen");
-    }
-	
 	public void onActionFromGetInvitations()
 	{
 		Set<Invitation> invs = backend.getInvitations(loggedInPerson);

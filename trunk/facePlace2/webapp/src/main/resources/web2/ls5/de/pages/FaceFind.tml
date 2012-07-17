@@ -27,6 +27,9 @@
             	<p:ignorcell>
             		<t:actionlink t:id="ignorfriend" context="invite.id">[-]</t:actionlink>
 				</p:ignorcell>
+				<p:empty>
+              		<p>Du hast hier keine Freunde. Nutze <t:pagelink page="facefind">faceFind</t:pagelink> um sie zu finden.</p>
+            	</p:empty>
 			</t:grid>
 		</div>
 	</div>
