@@ -3,6 +3,8 @@ package web2.ls5.de.entities;
 import java.io.Serializable;
 import javax.persistence.*;
 import java.lang.annotation.ElementType;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Entity
@@ -35,10 +37,12 @@ public class DBPost implements Serializable, Comparable<DBPost> {
   public Date getCreationDate() {
     return creationDate;
   }
-
   public void setCreationDate(Date creationDate) {
     this.creationDate = creationDate;
   }
+  
+
+ 
 
   public void setCreator(String creator) {
     this.creator = creator;
