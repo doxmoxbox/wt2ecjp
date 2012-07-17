@@ -184,13 +184,14 @@ div.page {
 .post .entry .home .top
 {
 	float: top;
+	magrin-bottom: 200px;
 	/*border: 1px #999999 dashed;*/
 }
 
 .post .entry .home .top .user
 {
 	float: left;
-	border: 1px #999999 dashed;
+	/*border: 1px #999999 dashed;*/
 }
 
 .post .entry .home .top .user .t-beandisplay
@@ -206,9 +207,38 @@ div.page {
 
 .post .entry .home .top .msgs
 {
-	float: right; 
+	float: right;
+	width:auto;
 	border: 1px #999999 dashed;
 }
+
+.post .entry .home .top .msgs .t-alert-container DIV.t-info
+{
+	margin-right:4px;
+	float: right; 
+}
+
+.post .entry .home .top .msgs .t-alert-container DIV.t-dismiss
+{
+	float:right;
+}
+
+.post .entry .home .top .msgs .t-alert-container DIV.t-message-container
+{
+	float:left;
+}
+
+.post .entry .home .top .msgs DIV.t-alert-container
+{
+	float:left;
+}
+
+.post .entry .home .top .msgs DIV.t-alert-controls
+{
+	float:right;
+}
+
+
 
 .post .entry .home .bottom
 {

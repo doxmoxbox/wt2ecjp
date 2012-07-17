@@ -1,6 +1,7 @@
 package web2.ls5.de.components;
 
 import org.apache.tapestry5.alerts.AlertManager;
+import org.apache.tapestry5.alerts.Duration;
 import org.apache.tapestry5.annotations.*;
 import org.apache.tapestry5.corelib.components.Form;
 import org.apache.tapestry5.corelib.components.TextArea;
@@ -32,7 +33,7 @@ public class PostingComponent
 	
 	void onValidateFromPostForm()
 	{
-		alertManager.info("Post abgeschickt!");
+		alertManager.alert(Duration.UNTIL_DISMISSED, org.apache.tapestry5.alerts.Severity.INFO, "Post abgeschickt!");
 	    //backend.createNewPost();
 	}
 }

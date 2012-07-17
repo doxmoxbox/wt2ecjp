@@ -15,7 +15,6 @@
 				<t:actionlink t:id="createTestEntries">Erstelle Testeintraege</t:actionlink>
 			</div>
 			<div class="msgs">
-				<h2>Benachrichtigungen</h2>
 				<t:alerts/>
 			</div>
 		</div>
