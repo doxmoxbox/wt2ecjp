@@ -8,6 +8,7 @@ import org.apache.tapestry5.corelib.components.TextArea;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
 import web2.ls5.de.backend.ApplicationBackend;
+import web2.ls5.de.entities.DBPerson;
 
 /**
  * 
@@ -27,6 +28,10 @@ public class PostingComponent
 	
 	@Property
 	private String txt;
+  
+  @Property
+	@SessionState(create=false)
+	private DBPerson loggedInPerson;
 	
 	@Inject
 	AlertManager alertManager;
@@ -35,5 +40,8 @@ public class PostingComponent
 	{
 		alertManager.alert(Duration.UNTIL_DISMISSED, org.apache.tapestry5.alerts.Severity.INFO, "Post abgeschickt!");
 	    //backend.createNewPost();
+    if(loggedInPerson != null) {
+      backend.createPosting(loggedInPerson, txt);
+    }
 	}
 }
