@@ -303,6 +303,11 @@ div.page {
 	height: 30px; 
 }
 
+.post .entry .home .bottom .friends .grid  td	
+{ 
+	text-align: center;
+}
+
 .post .entry .home .bottom .friends .grid tr:hover	
 { 
 	background-color: #eeeeee; 
