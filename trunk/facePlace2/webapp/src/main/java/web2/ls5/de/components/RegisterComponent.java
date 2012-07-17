@@ -14,8 +14,8 @@ import web2.ls5.de.backend.ApplicationBackend;
 import web2.ls5.de.backend.UserManager;
 import web2.ls5.de.entities.DBPerson;
 
-public class RegisterComponent 
-{
+public class RegisterComponent {
+
   @Persist
   private String name;
   @Property
@@ -29,29 +29,23 @@ public class RegisterComponent
   ApplicationBackend backend;
   @Component
   private Form registerForm;
-  
   private UserManager authenticator = backend.getUserManager();
-  
   @Component(id = "registerPassword")
   private PasswordField registerPasswordField;
-  
   @SessionState
   private DBPerson loggedInPerson;
 
   /**
    * Creates a new user.
    */
-  void onValidateFromRegisterForm() 
-  {
-    if (!authenticator.signUp(name, password, repeatPassword, birthdate))
-    {
-    	registerForm.recordError(registerPasswordField, "Passwords are not equal.");
-    }
-    
-    loggedInPerson = authenticator.isValid(name, password);
-    if(loggedInPerson == null)
-    {
-    	registerForm.recordError(registerPasswordField, "Login Failed! Try again separatly.");
+  void onValidateFromRegisterForm() {
+    if (!authenticator.signUp(name, password, repeatPassword, birthdate)) {
+      registerForm.recordError(registerPasswordField, "Register failed.");
+    } else {
+      loggedInPerson = authenticator.isValid(name, password);
+      if (loggedInPerson == null) {
+        registerForm.recordError(registerPasswordField, "Login Failed! Try again separatly.");
+      }
     }
   }
 
