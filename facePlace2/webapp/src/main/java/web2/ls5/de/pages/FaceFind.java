@@ -5,12 +5,14 @@ import java.util.Set;
 import java.util.logging.Logger;
 import org.apache.tapestry5.alerts.AlertManager;
 import org.apache.tapestry5.alerts.Duration;
+import org.apache.tapestry5.alerts.Severity;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.annotations.SessionState;
 import org.apache.tapestry5.corelib.components.Form;
 import org.apache.tapestry5.corelib.components.TextArea;
 import org.apache.tapestry5.ioc.annotations.Inject;
 import web2.ls5.de.backend.ApplicationBackend;
+import web2.ls5.de.biz.entities.atoms.Invitation;
 
 import web2.ls5.de.entities.DBPerson;
 
@@ -33,7 +35,28 @@ public class FaceFind {
   private Set<String> searchResult = new HashSet<String>();
   @Property
   private String chosenPerson;
+  
+  @Property
+  private Invitation invite;
 
+  
+  void onActionFromAddFriend(long invId)
+  {
+      backend.acceptInvitation(backend.getInvitationById(invId));
+  }  
+  
+  void onActionFromIgnorFriend(long invId)
+  {
+	  backend.declineInvitation(backend.getInvitationById(invId));
+  }  
+  
+  
+  public Set<Invitation> getInvites()
+  {
+	  return backend.getInvitations(loggedInPerson);
+  }
+  
+  
   void onValidateFromSearchForm() {
     if (txt != null) {
       Set<DBPerson> result = backend.findPersons(txt);
