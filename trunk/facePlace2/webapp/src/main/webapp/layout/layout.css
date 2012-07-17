@@ -224,6 +224,12 @@ div.page {
 	float: right;
 }
 
+.post .entry .home .top .msgs .t-alert-container DIV.t-error
+{
+	margin-right:4px;
+	float: right;
+}
+
 .post .entry .home .top .msgs .t-alert-container DIV.t-dismiss
 {
 	float:right;

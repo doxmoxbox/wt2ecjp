@@ -2,6 +2,7 @@ package web2.ls5.de.components;
 
 import org.apache.tapestry5.alerts.AlertManager;
 import org.apache.tapestry5.alerts.Duration;
+import org.apache.tapestry5.alerts.Severity;
 import org.apache.tapestry5.annotations.*;
 import org.apache.tapestry5.corelib.components.Form;
 import org.apache.tapestry5.corelib.components.TextArea;
@@ -38,11 +39,20 @@ public class PostingComponent
 	
 	void onValidateFromPostForm()
 	{
-		alertManager.alert(Duration.SINGLE, org.apache.tapestry5.alerts.Severity.INFO, "Post abgeschickt!");
+		
 	    //backend.createNewPost();
 	    if(loggedInPerson != null)
 	    {
-	      backend.createPosting(loggedInPerson, txt);
+	    	if(txt != null)
+	    	{
+	    		backend.createPosting(loggedInPerson, txt);
+	    		alertManager.alert(Duration.TRANSIENT, Severity.INFO, "Post abgeschickt!");
+	    	}
+	    	else
+	    	{
+	    		alertManager.alert(Duration.TRANSIENT, Severity.WARN, "Keine leeren Posts erlaubt!");
+	    	}
+	      
 	    }
 	}
 }
