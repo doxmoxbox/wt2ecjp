@@ -36,7 +36,8 @@ public class Home
 	
 	public Set<DBPost> getPosts()
 	{
-		return backend.getAllPosts();
+		//return backend.getAllPosts();
+    return backend.getAllPostingsFromDBPerson(loggedInPerson);
 	}
 	
 	public Set<DBPerson> getFriends()
