@@ -12,7 +12,8 @@
 			</div>
 			<div style="float:left;">
 				<t:actionlink t:id="testmsg">TestMsg</t:actionlink><br/>
-				<t:actionlink t:id="createTestEntries">Erstelle Testeintraege</t:actionlink>
+				<t:actionlink t:id="createTestEntries">Erstelle Testeintraege</t:actionlink><br/>
+				<t:actionlink t:id="GetInvitations">Frage Einladungen ab</t:actionlink>
 			</div>
 			<div class="msgs">
 				<t:alerts/>

@@ -28,7 +28,7 @@ public class Postings
 	void onActionFromCreateTestEntries()
     {
    //     alertManager.info("Erstelle Testeintraege");
-        backend.createTestEntries();
+        //backend.createTestEntries();
      //   alertManager.info("Fertig damit!");
     }
 	

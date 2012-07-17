@@ -38,10 +38,11 @@ public class PostingComponent
 	
 	void onValidateFromPostForm()
 	{
-		alertManager.alert(Duration.UNTIL_DISMISSED, org.apache.tapestry5.alerts.Severity.INFO, "Post abgeschickt!");
+		alertManager.alert(Duration.SINGLE, org.apache.tapestry5.alerts.Severity.INFO, "Post abgeschickt!");
 	    //backend.createNewPost();
-    if(loggedInPerson != null) {
-      backend.createPosting(loggedInPerson, txt);
-    }
+	    if(loggedInPerson != null)
+	    {
+	      backend.createPosting(loggedInPerson, txt);
+	    }
 	}
 }
