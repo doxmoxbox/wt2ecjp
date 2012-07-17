@@ -83,7 +83,7 @@ public interface ApplicationBackend {
    */
   public UserManager getUserManager();
 
-  public void createTestEntries();
+  public void createTestEntries(DBPerson pers);
 
   public String sayHello();
 }
