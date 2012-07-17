@@ -1,6 +1,7 @@
 package web2.ls5.de.components;
 
 import org.apache.tapestry5.alerts.AlertManager;
+import org.apache.tapestry5.alerts.Duration;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Form;
 import org.apache.tapestry5.corelib.components.TextArea;
@@ -27,7 +28,7 @@ public class SearchFriendsComp
 	
 	void onValidateFromSearchForm()
 	{
-		alertManager.info("Suche!");
+		alertManager.alert(Duration.UNTIL_DISMISSED, org.apache.tapestry5.alerts.Severity.INFO, "Suche!");
 	    //backend.createNewPost();
 	}
 }
