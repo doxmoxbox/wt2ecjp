@@ -4,4 +4,33 @@
 		xmlns:p="tapestry:parameter">
 		
 		<p>FaceFind! :D</p>
+	
+                <div class="search">
+	    		<h2>Suchen</h2>
+                <form t:type="form" t:id="searchForm">
+	
+                <div style="margin-left: 20px;">
+		<div style="float:top;" align="left">
+			<t:textarea value="txt" cols="80" rows="3"/>
+		</div>
+		<div style="float:top;" align="left">
+			<input type="submit" value="Suchen"/>
+		</div>      
+                 </div>	
+                 </form>
+                
+                <br/><br/>
+                <div class="result">
+                        <h2>Suchergebnis</h2> <br/>
+                          <form t:type="form" t:id="resultForm">
+
+                            <t:label for="chosenPerson"/>:
+                            <t:select t:id="chosenPerson" model="searchResult"/>
+
+                            <br/><br/>
+
+                            <input type="submit" value="Send invitation"/>
+                        </form>
+                  </div> 
+                </div>
 </html>
