@@ -50,7 +50,7 @@ public class DBPost implements Serializable, Comparable<DBPost> {
 
   public int compareTo(DBPost o) {
 
-    if (creationDate.before(o.getCreationDate())) {
+    if (creationDate.getTime() < o.getCreationDate().getTime()) {
       return 1;
     } else {
       return -1;
