@@ -30,7 +30,7 @@ public class LoginComponent {
   
   Logger log = Logger.getLogger(LoginComponent.class.getName());
   
-  @SessionState
+  @SessionState(create = false)
   private DBPerson loggedInPerson;
   
   /**
@@ -43,11 +43,6 @@ public class LoginComponent {
     {
       loginForm.recordError(passwordField, "Invalid user name or password.");
     }
-	/*  loggedInPerson = 
-	if(guiBackend.login(name, password))
-	{
-		loginForm.recordError(passwordField, "Invalid user name or password.");
-	}*/
   }
 	 
 	/**
