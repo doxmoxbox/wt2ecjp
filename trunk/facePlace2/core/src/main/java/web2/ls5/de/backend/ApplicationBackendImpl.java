@@ -78,6 +78,9 @@ public class ApplicationBackendImpl implements ApplicationBackend {
    * Use this!
    */
   public void createInvitation(DBPerson src, DBPerson invitedPerson) {
+    if(src == null || invitedPerson == null) {
+      return;
+    }
     Invitation inv = new Invitation(src.getName(), invitedPerson.getName());
     em.persist(inv);
   }
