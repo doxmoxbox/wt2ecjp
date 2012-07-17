@@ -106,7 +106,7 @@ public class UserPerson implements Comparable<UserPerson>, Serializable {
     this.invitationsList = invitationsList;
   }
 
-  public void invite(UserPerson invitee) {
+ /* public void invite(UserPerson invitee) {
     Invitation inv = new Invitation();
     inv.setInviter(this);
     inv.setInvitee(invitee);
@@ -119,7 +119,7 @@ public class UserPerson implements Comparable<UserPerson>, Serializable {
 
   public void startFriendship(Invitation invitation) {
     invitation.approve();
-  }
+  }*/
 
   public void endFrindship(UserPerson notFriend) {
     friends.remove(notFriend);

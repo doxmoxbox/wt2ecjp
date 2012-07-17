@@ -30,66 +30,7 @@ public class ApplicationBackendImpl implements ApplicationBackend {
   SearchEngineController se = new SearchEngineController();
 
   /*
-   * -----------------------------------
-   * All about user: --
-   * -----------------------------------
-   */
-  public void endFriendship(UserPerson shooter, UserPerson shooted) {
-    shooter.endFrindship(shooted);
-  }
-
-  public UserPerson login(String username, String passwort) {
-    return us.login(username, passwort);
-  }
-
-  public Vector<UserPerson> searchNames(String prefix) {
-    return se.searchNames(prefix);
-  }
-
-  public void invite(UserPerson inviter, UserPerson invitee) {
-    inviter.invite(invitee);
-  }
-
-  public List<Invitation> chooseInivitation(UserPerson invitee) {
-    return invitee.getInvitationsList();
-  }
-
-  public void startFriendship(Invitation invitation) {
-    invitation.approve();
-  }
-
-  public UserPerson register(String username, String passwort, String name) {
-    return us.register(username, passwort, name);
-  }
-
-  public DBPerson createNewPerson() {
-    DBPerson newperson = new DBPerson();
-
-    em.persist(newperson);
-
-    return newperson;
-  }
-
-  public Set<DBPerson> getAllPersons() {
-    Query q = em.createQuery("SELECT p FROM DBPerson p", DBPerson.class);
-    return new HashSet<DBPerson>(q.getResultList());
-  }
-
-  public DBPerson getPerson(long id) {
-    return em.find(DBPerson.class, id);
-  }
-
-  public void removePerson(long id) {
-    DBPerson p = getPerson(id);
-    if (p != null) {
-      em.remove(p);
-    }
-  }
-
-  /*
-   * ---------------------------
-   * All about posts:	--
-   * ---------------------------
+   * Working methods!
    */
   /**
    * Use this!
@@ -128,13 +69,149 @@ public class ApplicationBackendImpl implements ApplicationBackend {
             list.add(p);
           }
         }
-      }      
+      }
     }
     return new TreeSet<DBPost>(list);
-  } 
+  }
 
+  /**
+   * Use this!
+   */
+  public void createInvitation(DBPerson src, DBPerson invitedPerson) {
+    Invitation inv = new Invitation(src.getName(), invitedPerson.getName());
+    em.persist(inv);
+  }
+
+  /**
+   * Use this!
+   */
+  public Set<Invitation> getInvitations(DBPerson pers) {
+    Set<Invitation> invs = new HashSet<Invitation>();
+    Query q = em.createQuery("SELECT i FROM Invitation i", Invitation.class);
+    for (Invitation i : new HashSet<Invitation>(q.getResultList())) {
+      if (pers.getName().equals(i.getInvitee())) {
+        invs.add(i);
+      }
+    }
+    return invs;
+  }
+
+  /**
+   * Use this!
+   */
+  public void acceptInvitation(Invitation i) {
+    WeAreFriends war = new WeAreFriends(i.getInviter(), i.getInvitee());
+    em.persist(war);
+    em.remove(em.find(Invitation.class, i));
+  }
+
+  /**
+   * Use this!
+   */
+  public void declineInvitation(Invitation i) {
+    em.remove(em.find(Invitation.class, i));
+  }
+
+  /**
+   * Use this!
+   */
+  public Set<DBPerson> getFriends(DBPerson pers) {
+    Set<DBPerson> friends = new HashSet<DBPerson>();
+    Query q = em.createQuery("SELECT f FROM WeAreFriends f", WeAreFriends.class);
+    for (WeAreFriends war : new HashSet<WeAreFriends>(q.getResultList())) {
+      if (pers.getName().equals(war.getFriendOne())) {
+        friends.add(findDBPersonByName(war.getFriendTwo()));
+      } else if (pers.getName().equals(war.getFriendTwo())) {
+        friends.add(findDBPersonByName(war.getFriendOne()));
+      }
+    }
+    return friends;
+  }
+
+  private DBPerson findDBPersonByName(String name) {
+    Query q = em.createQuery("SELECT p FROM DBPerson p", DBPerson.class);
+    for (DBPerson p : new HashSet<DBPerson>(q.getResultList())) {
+      if (name.equals(p.getName())) {
+        return p;
+      }
+    }
+    return null;
+  }
   
+  public Set<DBPerson> findPersons(String prefix) {
+     Query q = em.createQuery("SELECT p FROM DBPerson p", DBPerson.class);
+     Set<DBPerson> persons = new HashSet<DBPerson>();
+     for(DBPerson p : new HashSet<DBPerson>(q.getResultList())) {
+       if(p.getName().startsWith(prefix)) {
+         persons.add(p);
+       }
+     }
+     return persons;
+  }
 
+
+  /*
+   * -----------------------------------
+   * All about user: --
+   * -----------------------------------
+   */
+  public void endFriendship(UserPerson shooter, UserPerson shooted) {
+    shooter.endFrindship(shooted);
+  }
+
+  public UserPerson login(String username, String passwort) {
+    return us.login(username, passwort);
+  }
+
+  public Vector<UserPerson> searchNames(String prefix) {
+    return se.searchNames(prefix);
+  }
+
+  public void invite(UserPerson inviter, UserPerson invitee) {
+  //  inviter.invite(invitee);
+  }
+
+  public List<Invitation> chooseInivitation(UserPerson invitee) {
+    return invitee.getInvitationsList();
+  }
+
+  public void startFriendship(Invitation invitation) {
+    //invitation.approve();
+  }
+
+  public UserPerson register(String username, String passwort, String name) {
+    return us.register(username, passwort, name);
+  }
+
+  public DBPerson createNewPerson() {
+    DBPerson newperson = new DBPerson();
+
+    em.persist(newperson);
+
+    return newperson;
+  }
+
+  public Set<DBPerson> getAllPersons() {
+    Query q = em.createQuery("SELECT p FROM DBPerson p", DBPerson.class);
+    return new HashSet<DBPerson>(q.getResultList());
+  }
+
+  public DBPerson getPerson(long id) {
+    return em.find(DBPerson.class, id);
+  }
+
+  public void removePerson(long id) {
+    DBPerson p = getPerson(id);
+    if (p != null) {
+      em.remove(p);
+    }
+  }
+
+  /*
+   * ---------------------------
+   * All about posts:	--
+   * ---------------------------
+   */
   public void post(UserPerson poster, String text) {
     poster.postOnAllWalls(text);
   }
