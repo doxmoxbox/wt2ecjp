@@ -65,7 +65,7 @@ public class Home
 		Set<Invitation> invs = backend.getInvitations(loggedInPerson);
 		for(Invitation inv : invs)
 		{
-			alertManager.alert(Duration.UNTIL_DISMISSED, Severity.WARN, inv.getInviter()+" ein Freund?");
+			alertManager.alert(Duration.SINGLE, Severity.INFO, "faceFind: Neuer Freund!");
 		}
 		
 	}
