@@ -305,7 +305,7 @@ public class ApplicationBackendImpl implements ApplicationBackend {
     }
   }
 
-  public void createTestEntries() {
+  public void createTestEntries(DBPerson person) {
     for (int i = 0; i < 15; i++) {
       DBPerson newPerson = createNewPerson();
       newPerson.setName("Mr.X");
@@ -317,8 +317,9 @@ public class ApplicationBackendImpl implements ApplicationBackend {
       newPost.setCreationDate(bla);
       newPost.setMsg(generateRandomString());
       newPost.setCreator(newPerson.getName());
-
       em.persist(newPost);
+      
+      createInvitation(newPerson, person);
     }
   }
 
