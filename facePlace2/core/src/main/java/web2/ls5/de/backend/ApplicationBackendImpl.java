@@ -91,6 +91,9 @@ public class ApplicationBackendImpl implements ApplicationBackend {
    * All about posts:	--
    * ---------------------------
    */
+  /**
+   * Use this!
+   */
   public void createPosting(DBPerson pers, String text) {
     DBPost post = new DBPost();
     post.setCreationDate(new Date());
@@ -99,6 +102,9 @@ public class ApplicationBackendImpl implements ApplicationBackend {
     em.persist(post);
   }
 
+  /**
+   * Use this!
+   */
   public Set<DBPost> getAllPostingsFromDBPerson(DBPerson pers) {
     Query q = em.createQuery("SELECT p FROM DBPost p", DBPost.class);
     SortedSet<DBPost> list = new TreeSet<DBPost>();
