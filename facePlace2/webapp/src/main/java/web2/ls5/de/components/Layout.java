@@ -6,6 +6,7 @@ import org.apache.tapestry5.ioc.annotations.*;
 import org.apache.tapestry5.BindingConstants;
 import org.apache.tapestry5.SymbolConstants;
 
+import web2.ls5.de.backend.ApplicationBackend;
 import web2.ls5.de.entities.DBPerson;
 
 /**
@@ -34,6 +35,9 @@ public class Layout
 
     @Inject
     private ComponentResources resources;
+    
+    @Inject
+	private ApplicationBackend backend;
 
     @Property
     @Inject
@@ -68,5 +72,10 @@ public class Layout
     public void showSidebar(boolean b)
     {
     	showSidebar = b;
+    }
+    
+    void onActionFromCreateTestEntries()
+    {
+        backend.createTestEntries();
     }
 }

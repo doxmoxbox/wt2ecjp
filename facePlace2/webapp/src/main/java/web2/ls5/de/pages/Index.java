@@ -24,10 +24,4 @@ public class Index
 	{
 		return "Willkommen auf facePlace++!";
 	}
-	
-	Object onActivate()
-	{
-		backend.createTestEntries();
-		return null;
-	}
 }

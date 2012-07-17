@@ -19,27 +19,27 @@ public class TestEntriesFactory
 		
 		DBPerson person1 = backend.createNewPerson();
 		person1.setName("Mr.X");
-		person1.setBirthdate(new Date(3500, 9, 3));
+		person1.setBirthdate(new Date(42, 9, 3));
 		person1.setPassword(backend.getUserManager().getHashedPassword("123"));
 		
 		DBPerson person2 = backend.createNewPerson();
 		person2.setName("Emil");
-		person2.setBirthdate(new Date(3434, 3, 24));
+		person2.setBirthdate(new Date(87, 3, 24));
 		person2.setPassword(backend.getUserManager().getHashedPassword("123"));
 		
 		DBPerson person3 = backend.createNewPerson();
 		person3.setName("Tom");
-		person3.setBirthdate(new Date(3735, 1, 25));
+		person3.setBirthdate(new Date(54, 1, 25));
 		person3.setPassword(backend.getUserManager().getHashedPassword("123"));
 		
 		DBPerson person4 = backend.createNewPerson();
 		person4.setName("Johnny");
-		person4.setBirthdate(new Date(3737, 8, 2));
+		person4.setBirthdate(new Date(23, 8, 2));
 		person4.setPassword(backend.getUserManager().getHashedPassword("123"));
 		
 		DBPerson person5 = backend.createNewPerson();
 		person5.setName("Christoph");
-		person5.setBirthdate(new Date(3333, 2, 28));
+		person5.setBirthdate(new Date(88, 2, 28));
 		person5.setPassword(backend.getUserManager().getHashedPassword("123"));
 		
 		/*Create posts*/
