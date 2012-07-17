@@ -1,6 +1,9 @@
 package web2.ls5.de.pages;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.Set;
+import java.util.Vector;
 import java.util.logging.Logger;
 
 import org.apache.tapestry5.alerts.AlertManager;
@@ -42,10 +45,12 @@ public class Home
 	@Inject
 	private ApplicationBackend backend;
 	
-	public Set<DBPost> getPosts()
+	public Vector<DBPost> getPosts()
 	{
 		//return backend.getAllPosts();
-    return backend.getAllPostingsFromDBPerson(loggedInPerson);
+		Vector<DBPost> posts = new Vector<DBPost>(backend.getAllPostingsFromDBPerson(loggedInPerson));
+		Collections.sort(posts);
+		return posts;
 	}
 	
 	public Set<DBPerson> getFriends()
