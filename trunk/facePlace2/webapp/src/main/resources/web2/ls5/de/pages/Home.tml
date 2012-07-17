@@ -37,7 +37,7 @@
 				<div style="float:bottom;">
 					<t:grid source="friends" row="person" class="grid" rowsPerPage="10" exclude="id, password" add="delete">
 						<p:deletecell>
-                			<t:actionlink t:id="delete" context="loggedinperson.id">[-]</t:actionlink>
+                			<t:actionlink t:id="delete" context="person.id">[-]</t:actionlink>
             			</p:deletecell>
             			<p:empty>
               				<p>Du hast hier keine Freunde. Nutze <t:pagelink page="facefind">faceFind</t:pagelink> um sie zu finden.</p>

@@ -57,7 +57,7 @@ public class FaceFind {
   }
   
   
-  void onValidateFromSearchForm() {
+  void onValidateFromSearchForm() {   
     if (txt != null) {
       Set<DBPerson> result = backend.findPersons(txt);
       if (!result.isEmpty()) {
@@ -68,7 +68,6 @@ public class FaceFind {
         }
       }
     }
-
   }
 
   Object onActivate() {

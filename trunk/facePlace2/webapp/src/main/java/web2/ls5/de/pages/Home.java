@@ -1,6 +1,7 @@
 package web2.ls5.de.pages;
 
 import java.util.Set;
+import java.util.logging.Logger;
 
 import org.apache.tapestry5.alerts.AlertManager;
 import org.apache.tapestry5.alerts.Duration;
