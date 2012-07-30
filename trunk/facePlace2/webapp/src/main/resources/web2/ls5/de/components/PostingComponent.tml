@@ -2,7 +2,7 @@
 	
 	<div style="margin-right: 20px;">
 		<div style="float:top;" align="right">
-			<t:textarea value="txt" cols="80" rows="3"/>
+			<t:textarea value="txt" cols="50" rows="3"/>
 		</div>
 		
 		<div style="float:top;" align="right">

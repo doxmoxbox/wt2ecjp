@@ -80,6 +80,10 @@ public class ApplicationBackendImpl implements ApplicationBackend {
     if (src == null || invitedPerson == null) {
       return null;
     }
+    if(getFriends(src).contains(invitedPerson))
+    {
+    	return null;
+    }
     Invitation inv = new Invitation(src.getName(), invitedPerson.getName());
     em.persist(inv);
     return inv;

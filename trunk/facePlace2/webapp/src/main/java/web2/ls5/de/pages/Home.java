@@ -64,7 +64,7 @@ public class Home
 		Set<Invitation> invs = backend.getInvitations(loggedInPerson);
 		for(Invitation inv : invs)
 		{
-			alertManager.alert(Duration.SINGLE, Severity.INFO, "faceFind: Neuer Freund!");
+			alertManager.alert(Duration.TRANSIENT, Severity.INFO, "faceFind: Neuer Freund!");
 		}
 		
 	}
@@ -75,11 +75,15 @@ public class Home
         alertManager.alert(Duration.TRANSIENT, Severity.INFO, "faceFind: Freund entfernt!");
     }  
 	
-	Object onActivate()
+	Object onActivation()
 	{
 		if (loggedInPerson == null)return "index";
-		lookforInvitations();
 		return null;
+	}
+	
+	void pageLoaded()
+	{
+		lookforInvitations();
 	}
 	
 	public String getFormattedPostDate()

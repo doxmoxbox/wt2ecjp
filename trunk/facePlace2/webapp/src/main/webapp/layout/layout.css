@@ -141,7 +141,7 @@ div.menu .current_page_item a {
 /* Page */
 
 div.page {
-    padding: 20px 40px 0 40px;
+    padding: 20px 20px 0 20px;
 }
 
 /* Content */
@@ -353,7 +353,7 @@ div.page {
 .post .entry .login .log 
 {
 	float: left;
-	margin: 100px 0px 0px 160px;
+	margin: 100px 0px 0px 120px;
 	/*border: 1px #999999 dashed;*/
 }
 
@@ -368,7 +368,7 @@ div.page {
 .post .entry .login .reg 
 {
 	float: right;
-	margin: 20px 180px 0px 0px;
+	margin: 20px 120px 0px 0px;
 	/*border: 1px #999999 dashed;*/
 }
 
